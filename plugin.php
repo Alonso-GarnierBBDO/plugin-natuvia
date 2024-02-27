@@ -32,6 +32,9 @@ add_action('init', function(){
 include plugin_dir_path(__FILE__) . 'settings/pages.php';
 include plugin_dir_path(__FILE__) . 'settings/query_vars.php';
 
+/** Agregamos los estilos */
+include plugin_dir_path(__FILE__) . 'functions.php';
+
 /** Agregamos un query var para personalizar el HTML */
 add_filter('query_vars', 'page_recetas_register_query_var');
 
@@ -46,7 +49,6 @@ add_action('admin_init', 'disable_edit_page_recetas');
 
 /** Agregamos el nuevo template en recetas */
 add_action('template_redirect', 'page_recetas_template_redirect');
-
 
 
 
