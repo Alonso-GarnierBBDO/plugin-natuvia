@@ -1,10 +1,5 @@
-<?php
-    include plugin_dir_path(__FILE__) . 'components/header.php';
-?>
+<?php include plugin_dir_path(__DIR__) . 'templates/components/header.php'; ?>
 
-<h1>Hola mundo</h1>
+<h1> Hola, como estan? </h1>
 
-
-<?php
-    include plugin_dir_path(__FILE__) . 'components/footer.php';
-?>
+<?php include plugin_dir_path(__DIR__) . 'templates/components/footer.php'; ?>

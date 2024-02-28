@@ -1,8 +1,6 @@
-        
-        <?php wp_footer(); ?>
-        </main>
-        <footer>
-            Este es el footer
-        </footer>
-    </body>
+    </main>
+    <footer>
+        <?php get_footer(); ?>
+    </footer>
+</body>
 </html>

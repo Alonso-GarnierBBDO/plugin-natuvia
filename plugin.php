@@ -27,13 +27,14 @@ add_action('init', function(){
 
 });
 
+/** Agregamos los estilos */
+include plugin_dir_path(__FILE__) . 'functions.php';
 
 /** Ejecutamos las paginas del plugin */
 include plugin_dir_path(__FILE__) . 'settings/pages.php';
-include plugin_dir_path(__FILE__) . 'settings/query_vars.php';
 
-/** Agregamos los estilos */
-include plugin_dir_path(__FILE__) . 'functions.php';
+/** Guardamos variables */
+include plugin_dir_path(__FILE__) . 'settings/query_vars.php';
 
 /** Agregamos un query var para personalizar el HTML */
 add_filter('query_vars', 'page_recetas_register_query_var');
@@ -46,10 +47,3 @@ register_deactivation_hook(__FILE__, 'deactivate_page_recetas');
 
 /** Desactivamos al edicion de la pagina */
 add_action('admin_init', 'disable_edit_page_recetas');
-
-/** Agregamos el nuevo template en recetas */
-add_action('template_redirect', 'page_recetas_template_redirect');
-
-
-
-
