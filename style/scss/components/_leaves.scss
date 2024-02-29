@@ -1,0 +1,75 @@
+.leaves{
+
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100dvw;
+    height: 100dvh;
+    pointer-events: none;
+    user-select: none;
+    z-index: 999;
+
+    .leave{
+
+        display: block;
+        position: fixed;
+        transition: 15s linear; 
+        top: -5%;
+        width: 20px;
+        height: 20px;
+
+        @include bp(tablet){
+            width: 30px;
+            height: 30px;
+        }
+
+
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+
+        }
+
+        img.reverse{
+            @include keyframes(leaveReverseAnimation){
+    
+                0%{
+                    transform: rotate(50deg);
+                }
+                50%{
+                    transform: rotate(0deg);
+                }
+                100%{
+                    transform: rotate(50deg);
+                }
+    
+            }
+    
+            @include animate(leaveReverseAnimation, 4s, ease, infinite);
+        }
+
+        img.normal{
+
+            @include keyframes(leaveNormalAnimation){
+    
+                0%{
+                    transform: rotate(0deg);
+                }
+                50%{
+                    transform: rotate(50deg);
+                }
+                100%{
+                    transform: rotate(0deg);
+                }
+    
+            }
+    
+            @include animate(leaveNormalAnimation, 4s, ease, infinite);
+
+        }
+
+    }
+
+}

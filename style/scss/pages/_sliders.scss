@@ -1,0 +1,55 @@
+.recetas-header{
+    
+    .slider {
+        
+        .content {
+
+            width: 100dvw;
+            height: 300px;
+            position: relative;
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .items{
+
+                background-color: green;
+                width: 100%;
+                padding: 0px 10px;
+                display: flex;
+                column-gap: 30px;
+                flex-flow: row;
+                position: absolute;
+                height: 100%;
+                transition: .8s ease;
+                transform: translateX(0%);
+
+                @include bp(laptop){
+                    padding: 0px 0px;
+                    max-width: 1200px;
+                }
+
+                .item{
+
+                    width: 100%;
+                    background-color: blue;
+    
+                }
+
+            }
+
+            .items.right{
+                transform: translateX(120%);
+            }
+
+            .items.left{
+                transform: translateX(-120%);
+            }
+
+
+        }
+
+    }
+
+}

@@ -1,0 +1,77 @@
+.recetas-header{
+    width: 100%;
+    margin-top: 106px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 10px;
+    // min-height: calc(100dvh - 106px);
+
+    @include bp(tablet){
+        margin-top: 158px;
+        // min-height: calc(100dvh - 158px);
+    }
+
+    @include bp(laptop){
+        margin-top: 108px;
+        // min-height: calc(100dvh - 108px);
+    }
+
+    h1{
+
+        font-size: rem(65px);
+        font-family: $font-regular;
+        text-transform: uppercase;
+        text-align: center;
+        color: $secundary_color;
+        margin-top: 0px;
+
+        @include bp(mobileBIG){
+            font-size: rem(70px);
+        }
+
+        @include bp(tablet){
+            font-size: rem(75px);
+        }
+
+        @include bp(tabletMD){
+            font-size: rem(80px);
+        }
+
+        @include bp(laptop){
+            font-size: rem(90px);
+        }
+
+        @include bp(escritorio){
+            font-size: rem(95px);
+        }
+
+    }
+
+    .content{
+
+        font-family: $font-bold;
+        font-size: rem(15px);
+        color: $principal_text_color;
+        margin-top: rem(10px);
+
+        @include bp(mobileBIG){
+            font-size: rem(16px);
+        }
+
+        @include bp(tablet){
+            font-size: rem(17px);
+        }
+
+        @include bp(laptop){
+            font-size: rem(18px);
+        }
+
+        @include bp(escritorio){
+            font-size: rem(19px);
+        }
+
+    }
+
+}

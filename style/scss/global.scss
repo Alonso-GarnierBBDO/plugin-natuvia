@@ -1,5 +1,9 @@
+@import './resets/normalize';
 @import './variables';
+@import './components/leaves';
+@import './pages/recetas';
+@import './pages/sliders';
 
 body{
     background-color: $principal_color;
-}
+} 

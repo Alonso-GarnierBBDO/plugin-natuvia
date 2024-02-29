@@ -1,12 +1,12 @@
 import LeavesAnimation from './helpers/leaves.js';
-import SliderAnimation from './helpers/slider.js';
+// import HeightMenu from './helpers/menu.js';
 // Ejecutamos todos los scrips
 window.addEventListener('DOMContentLoaded', function () {
     // Animacion de las hojas
     LeavesAnimation();
-    // Armamos el slider
-    SliderAnimation();
+    // Obtenemos la altura del menu
+    // HeightMenu();
 });
-window.addEventListener('resize', function () {
-    SliderAnimation();
-});
+// window.addEventListener('resize', () => {
+//     HeightMenu();
+// })

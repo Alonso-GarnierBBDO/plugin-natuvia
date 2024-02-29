@@ -1,22 +1,195 @@
-/* Elementors variables */
-:root {
-  --e-global-color-primary: #225D38;
-  --e-global-color-secondary: #FF5C35;
-  --e-global-color-text: #7A7A7A;
-  --e-global-color-accent: #A2D45E;
-  --e-global-color-1d3ac4e: #DBEEBE;
-  --e-global-typography-primary-font-family: "Chillow Regular";
-  --e-global-typography-primary-font-weight: 600;
-  --e-global-typography-secondary-font-family: "Roboto Slab";
-  --e-global-typography-secondary-font-weight: 400;
-  --e-global-typography-text-font-family: "TeX Gyre Adventor Regular";
-  --e-global-typography-text-font-weight: 400;
-  --e-global-typography-accent-font-family: "TeX Gyre Adventor Bold";
-  --e-global-typography-accent-font-weight: 500;
+body,
+*,
+html {
+  margin: 0px;
+  padding: 0px;
+}
+
+@font-face {
+  font-family: chillow_regular;
+  src: url(../../assets/fonts/ChillowRegular.otf);
+}
+@font-face {
+  font-family: tex_readventor;
+  src: url(../../assets/fonts/TexgyreadventorBold.otf);
+}
+.leaves {
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  width: 100dvw;
+  height: 100dvh;
+  pointer-events: none;
+  user-select: none;
+  z-index: 999;
+}
+.leaves .leave {
+  display: block;
+  position: fixed;
+  transition: 15s linear;
+  top: -5%;
+  width: 20px;
+  height: 20px;
+}
+@media (min-width: 700px) {
+  .leaves .leave {
+    width: 30px;
+    height: 30px;
+  }
+}
+.leaves .leave img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.leaves .leave img.reverse {
+  animation: leaveReverseAnimation 4s ease infinite;
+}
+@keyframes leaveReverseAnimation {
+  0% {
+    transform: rotate(50deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(50deg);
+  }
+}
+.leaves .leave img.normal {
+  animation: leaveNormalAnimation 4s ease infinite;
+}
+@keyframes leaveNormalAnimation {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(50deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.recetas-header {
+  width: 100%;
+  margin-top: 106px;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 10px;
+}
+@media (min-width: 700px) {
+  .recetas-header {
+    margin-top: 158px;
+  }
+}
+@media (min-width: 1100px) {
+  .recetas-header {
+    margin-top: 108px;
+  }
+}
+.recetas-header h1 {
+  font-size: 4.0625rem;
+  font-family: chillow_regular;
+  text-transform: uppercase;
+  text-align: center;
+  color: #335C3C;
+  margin-top: 0px;
+}
+@media (min-width: 550px) {
+  .recetas-header h1 {
+    font-size: 4.375rem;
+  }
+}
+@media (min-width: 700px) {
+  .recetas-header h1 {
+    font-size: 4.6875rem;
+  }
+}
+@media (min-width: 901px) {
+  .recetas-header h1 {
+    font-size: 5rem;
+  }
+}
+@media (min-width: 1100px) {
+  .recetas-header h1 {
+    font-size: 5.625rem;
+  }
+}
+@media (min-width: 1600px) {
+  .recetas-header h1 {
+    font-size: 5.9375rem;
+  }
+}
+.recetas-header .content {
+  font-family: tex_readventor;
+  font-size: 0.9375rem;
+  color: #80BC00;
+  margin-top: 0.625rem;
+}
+@media (min-width: 550px) {
+  .recetas-header .content {
+    font-size: 1rem;
+  }
+}
+@media (min-width: 700px) {
+  .recetas-header .content {
+    font-size: 1.0625rem;
+  }
+}
+@media (min-width: 1100px) {
+  .recetas-header .content {
+    font-size: 1.125rem;
+  }
+}
+@media (min-width: 1600px) {
+  .recetas-header .content {
+    font-size: 1.1875rem;
+  }
+}
+
+.recetas-header .slider .content {
+  width: 100dvw;
+  height: 300px;
+  position: relative;
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.recetas-header .slider .content .items {
+  background-color: green;
+  width: 100%;
+  padding: 0px 10px;
+  display: flex;
+  column-gap: 30px;
+  flex-flow: row;
+  position: absolute;
+  height: 100%;
+  transition: 0.8s ease;
+  transform: translateX(0%);
+}
+@media (min-width: 1100px) {
+  .recetas-header .slider .content .items {
+    padding: 0px 0px;
+    max-width: 1200px;
+  }
+}
+.recetas-header .slider .content .items .item {
+  width: 100%;
+  background-color: blue;
+}
+.recetas-header .slider .content .items.right {
+  transform: translateX(120%);
+}
+.recetas-header .slider .content .items.left {
+  transform: translateX(-120%);
 }
 
 body {
-  background-color: red;
+  background-color: #F1F7E7;
 }
 
 /*# sourceMappingURL=global.css.map */
