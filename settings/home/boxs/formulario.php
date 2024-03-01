@@ -62,7 +62,7 @@
             <?php
 
         },
-        'portafolio_recetas',
+        'recetas_home_page',
         'advanced',
         'high'
     );

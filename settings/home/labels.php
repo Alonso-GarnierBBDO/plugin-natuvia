@@ -1,6 +1,6 @@
 <?php 
     // Config plugins
-    $labels_posts = array(
+    $labels = array(
         'name' => _x('All Recipes home', 'Post type general name', 'textdomain'),
         'singular_name' => _x('Recipes home', 'Post type singular name', 'textdomain'),
         'menu_name' => _x('Recipes home', 'Admin Menu text', 'textdomain'),

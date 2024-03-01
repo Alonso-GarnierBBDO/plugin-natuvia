@@ -3,7 +3,12 @@
 @import './components/leaves';
 @import './pages/recetas';
 @import './pages/sliders';
+@import './pages/contact';
 
 body{
     background-color: $principal_color;
 } 
+
+.elementor-location-header{
+    z-index: 99999 !important;
+}

@@ -1,21 +1,27 @@
 .recetas-header{
     width: 100%;
-    margin-top: 106px;
+    margin-top: 115px;
     display: flex;
     flex-flow: column;
     justify-content: center;
     align-items: center;
     padding: 0px 10px;
-    // min-height: calc(100dvh - 106px);
+
+    @include bp(mobileBIG){
+        max-width: 650px;
+        margin: 115px auto auto auto;
+    }
 
     @include bp(tablet){
         margin-top: 158px;
-        // min-height: calc(100dvh - 158px);
+    }
+
+    @include bp(tabletMD){
+        max-width: 1200px;
     }
 
     @include bp(laptop){
-        margin-top: 108px;
-        // min-height: calc(100dvh - 108px);
+        margin-top: 150px;
     }
 
     h1{
@@ -26,6 +32,7 @@
         text-align: center;
         color: $secundary_color;
         margin-top: 0px;
+        
 
         @include bp(mobileBIG){
             font-size: rem(70px);

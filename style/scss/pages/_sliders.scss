@@ -1,29 +1,203 @@
 .recetas-header{
+
+    // @include bp(tabletMD){
+
+    //     position: sticky;
+    //     top: 158px;
+
+    // }
+
+    // @include bp(laptop){
+
+    //     position: sticky;
+    //     top: 150px;
+
+    // }
+
+
+    @include bp(laptop){
+        min-height: 80dvh;
+    }
     
+    .content_mobile{
+
+        @include bp(tabletMD){
+            display: none;
+        }
+
+        .content {
+
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+            row-gap: 10px;
+            column-gap: 10px;
+            margin-top: 25px;
+            max-width: 400px;
+
+            @include bp(tablet){
+                max-width: 800px;
+            }
+
+            @include bp(tabletMD){
+                display: initial;
+                margin-top: initial;
+            }
+
+                .item{
+
+                    width: calc(50% - 5px);
+                    background-color: $color-boxs-white;
+                    max-width: 280px;
+                    display: flex;
+                    flex-flow: column;
+                    justify-content: flex-end;
+                    align-items: center;
+                    position: relative;
+                    border-radius: rem(20px);
+                    padding: 95px 15px 15px 15px ;
+                    text-decoration: none;
+                    transition: .2s ease;
+                    transform: scale(1);
+                    box-shadow: 0 .125rem .25rem transparent;
+                    margin-top: 45px;
+                    view-timeline-name: --image;
+                    view-timeline-axis: block;
+                    animation-timeline: --image;
+                    animation-name: showItem;
+                    animation-range: entry 25% cover 50%;
+                    animation-fill-mode: both;
+
+                    @include bp(tablet){
+                        width: calc(33% - 6.66px);
+                    }
+
+
+                    @keyframes showItem {
+                        from {
+                            opacity: 0;
+                        }
+                    
+                        to {
+                            opacity: 1;
+                        }
+                    }
+
+
+                    &:nth-of-type(1),
+                    &:nth-of-type(2){
+                        margin-top: 25px;
+                    }
+
+                    @include bp(tablet){
+                        &:nth-of-type(1),
+                        &:nth-of-type(2),
+                        &:nth-of-type(3){
+                            margin-top: 25px;
+                        }
+                    }
+
+                    @include bp(tabletMD){
+                        width: 100%;
+                    }
+
+                    .image{
+
+                        display: block;
+                        width: 95%;
+                        position: absolute;
+                        top: -20%;
+                        max-width: 280px;
+                        display: flex;
+                        justify-content: center;
+                        pointer-events: none;
+
+                        img{
+                            width: 100%;
+                            max-width: 150px;
+                            height: auto;
+                            object-fit: contain;
+                            transform: scale(1);
+                            transition: .5s ease;
+                        }
+                    }
+
+                    .information{
+
+                        h3 {
+
+                            text-align: center;
+                            color: $principal_text_color;
+                            font-family: $font-bold;
+                            font-size: rem(20px);
+
+                        }
+
+                        button {
+                            text-decoration: none;
+                            width: 100%;
+                            background-color: $color-link-recetas;
+                            padding: 10px;
+                            border: 2px solid transparent;
+                            border-radius: rem(10px);
+                            margin-top: 15px;
+                            cursor: pointer;
+                            transition: .2s ease ;
+                            font-size: rem(10px);
+                            font-family: $font-bold;
+                            text-transform: uppercase;
+                            color: $color-boxs-white;
+                        }
+
+                    }
+
+    
+                }
+
+        }
+
+    }
+
     .slider {
+
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         
         .content {
 
             width: 100dvw;
-            height: 300px;
+            height: 350px;
             position: relative;
-            margin-top: 50px;
             display: flex;
             justify-content: center;
             align-items: center;
+            overflow: hidden;
+            display: none;
+            margin-top: 15px;
+
+            @include bp(tabletMD){
+                display: flex;
+            }            
+
+            @include bp(laptop){
+                margin-top: 25px;
+            }
 
             .items{
 
-                background-color: green;
                 width: 100%;
                 padding: 0px 10px;
                 display: flex;
                 column-gap: 30px;
+                justify-content: center;
                 flex-flow: row;
                 position: absolute;
-                height: 100%;
-                transition: .8s ease;
+                // height: 100%;
+                transition: 1s ease;
                 transform: translateX(0%);
+                // max-height: 350px;
 
                 @include bp(laptop){
                     padding: 0px 0px;
@@ -33,20 +207,188 @@
                 .item{
 
                     width: 100%;
-                    background-color: blue;
+                    background-color: $color-boxs-white;
+                    max-width: 280px;
+                    display: flex;
+                    flex-flow: column;
+                    justify-content: flex-end;
+                    align-items: center;
+                    position: relative;
+                    border-radius: rem(20px);
+                    padding: 15px ;
+                    text-decoration: none;
+                    transition: .2s ease;
+                    transform: scale(1);
+                    box-shadow: 0 .125rem .25rem transparent;
+                    padding-top: 150px;
+
+                    &:hover{
+
+                        transform: scale(1.05);
+                        box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+
+                        .information {
+
+                            button{
+
+                                border: 2px solid $color-link-recetas;
+                                background-color: transparent;
+                                color: $color-link-recetas;
+
+                            }
+
+                        }
+
+                        .image {
+
+                            img {
+
+                                transform: scale(1.06);
+
+                            }
+
+                        }
+
+                    }
+
+                    .image{
+
+                        display: block;
+                        width: 85%;
+                        position: absolute;
+                        top: -20%;
+                        max-width: 280px;
+                        pointer-events: none;
+                        transform: translateY(0%) scale(1);
+                        transition: 1.5s ease;
+
+                        img{
+                            width: 100%;
+                            height: auto;
+                            object-fit: contain;
+                            transform: scale(1);
+                            transition: .5s ease;
+                        }
+                    }
+
+                    .information{
+
+                        h3 {
+
+                            text-align: center;
+                            color: $principal_text_color;
+                            font-family: $font-bold;
+                            font-size: rem(20px);
+
+                        }
+
+                        button {
+                            text-decoration: none;
+                            width: 100%;
+                            background-color: $color-link-recetas;
+                            padding: 15px 0px;
+                            border: 2px solid transparent;
+                            border-radius: rem(10px);
+                            margin-top: 15px;
+                            cursor: pointer;
+                            transition: .2s ease ;
+                            font-size: rem(14px);
+                            font-family: $font-bold;
+                            text-transform: uppercase;
+                            color: $color-boxs-white;
+                        }
+
+                    }
+
     
                 }
+
 
             }
 
             .items.right{
-                transform: translateX(120%);
+                transform: translateX(150%);
+
+                .image{
+                    transform: translateY(10%) scale(0.6);
+                }
+
             }
 
             .items.left{
-                transform: translateX(-120%);
+                transform: translateX(-150%);
+                .image{
+                    transform: translateY(10%) scale(0.6);
+                }
             }
 
+        }
+
+        .controls{
+            
+            display: none;
+
+            @include bp(tabletMD){
+                display: block;
+            }
+            
+
+            button {
+
+                position: absolute;
+                width: 40px;
+                height: 40px;
+                outline: none;
+                border: none;
+                background: transparent;
+                cursor: pointer;
+                transform: translateY(-50px) scale(1);
+                transition: .2s ease;
+                
+                &:disabled{
+                    opacity: 0.4;
+                    cursor: no-drop;
+                    pointer-events: none;
+                }
+
+                &:hover{
+                    transform: translateY(-50px) scale(1.09);
+                }
+
+                img  {
+
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+
+                }
+
+            }
+
+            button.prev{
+
+                left: 30px;
+
+                @include bp(escritorio){
+                    left: 50px;
+                }
+
+            }
+
+            button.next{
+                right: 30px;
+
+                @include bp(escritorio){
+                    right: 50px;
+                }
+
+                transform:  translateY(-50px) scale(1) rotate(180deg);
+
+                &:hover{
+                    transform: translateY(-50px) scale(1.09) rotate(180deg);
+                }
+
+            }
 
         }
 

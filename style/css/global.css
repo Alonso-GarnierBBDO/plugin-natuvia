@@ -73,21 +73,32 @@ html {
 
 .recetas-header {
   width: 100%;
-  margin-top: 106px;
+  margin-top: 115px;
   display: flex;
   flex-flow: column;
   justify-content: center;
   align-items: center;
   padding: 0px 10px;
 }
+@media (min-width: 550px) {
+  .recetas-header {
+    max-width: 650px;
+    margin: 115px auto auto auto;
+  }
+}
 @media (min-width: 700px) {
   .recetas-header {
     margin-top: 158px;
   }
 }
+@media (min-width: 901px) {
+  .recetas-header {
+    max-width: 1200px;
+  }
+}
 @media (min-width: 1100px) {
   .recetas-header {
-    margin-top: 108px;
+    margin-top: 150px;
   }
 }
 .recetas-header h1 {
@@ -150,25 +161,160 @@ html {
   }
 }
 
-.recetas-header .slider .content {
-  width: 100dvw;
-  height: 300px;
+@media (min-width: 1100px) {
+  .recetas-header {
+    min-height: 80dvh;
+  }
+}
+@media (min-width: 901px) {
+  .recetas-header .content_mobile {
+    display: none;
+  }
+}
+.recetas-header .content_mobile .content {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  row-gap: 10px;
+  column-gap: 10px;
+  margin-top: 25px;
+  max-width: 400px;
+}
+@media (min-width: 700px) {
+  .recetas-header .content_mobile .content {
+    max-width: 800px;
+  }
+}
+@media (min-width: 901px) {
+  .recetas-header .content_mobile .content {
+    display: initial;
+    margin-top: initial;
+  }
+}
+.recetas-header .content_mobile .content .item {
+  width: calc(50% - 5px);
+  background-color: #FFFFFF;
+  max-width: 280px;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-end;
+  align-items: center;
   position: relative;
-  margin-top: 50px;
+  border-radius: 1.25rem;
+  padding: 95px 15px 15px 15px;
+  text-decoration: none;
+  transition: 0.2s ease;
+  transform: scale(1);
+  box-shadow: 0 0.125rem 0.25rem transparent;
+  margin-top: 45px;
+  view-timeline-name: --image;
+  view-timeline-axis: block;
+  animation-timeline: --image;
+  animation-name: showItem;
+  animation-range: entry 25% cover 50%;
+  animation-fill-mode: both;
+}
+@media (min-width: 700px) {
+  .recetas-header .content_mobile .content .item {
+    width: calc(33% - 6.66px);
+  }
+}
+@keyframes showItem {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.recetas-header .content_mobile .content .item:nth-of-type(1), .recetas-header .content_mobile .content .item:nth-of-type(2) {
+  margin-top: 25px;
+}
+@media (min-width: 700px) {
+  .recetas-header .content_mobile .content .item:nth-of-type(1), .recetas-header .content_mobile .content .item:nth-of-type(2), .recetas-header .content_mobile .content .item:nth-of-type(3) {
+    margin-top: 25px;
+  }
+}
+@media (min-width: 901px) {
+  .recetas-header .content_mobile .content .item {
+    width: 100%;
+  }
+}
+.recetas-header .content_mobile .content .item .image {
+  display: block;
+  width: 95%;
+  position: absolute;
+  top: -20%;
+  max-width: 280px;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+.recetas-header .content_mobile .content .item .image img {
+  width: 100%;
+  max-width: 150px;
+  height: auto;
+  object-fit: contain;
+  transform: scale(1);
+  transition: 0.5s ease;
+}
+.recetas-header .content_mobile .content .item .information h3 {
+  text-align: center;
+  color: #80BC00;
+  font-family: tex_readventor;
+  font-size: 1.25rem;
+}
+.recetas-header .content_mobile .content .item .information button {
+  text-decoration: none;
+  width: 100%;
+  background-color: #F6572E;
+  padding: 10px;
+  border: 2px solid transparent;
+  border-radius: 0.625rem;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: 0.2s ease;
+  font-size: 0.625rem;
+  font-family: tex_readventor;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+.recetas-header .slider {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+.recetas-header .slider .content {
+  width: 100dvw;
+  height: 350px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  display: none;
+  margin-top: 15px;
+}
+@media (min-width: 901px) {
+  .recetas-header .slider .content {
+    display: flex;
+  }
+}
+@media (min-width: 1100px) {
+  .recetas-header .slider .content {
+    margin-top: 25px;
+  }
+}
 .recetas-header .slider .content .items {
-  background-color: green;
   width: 100%;
   padding: 0px 10px;
   display: flex;
   column-gap: 30px;
+  justify-content: center;
   flex-flow: row;
   position: absolute;
-  height: 100%;
-  transition: 0.8s ease;
+  transition: 1s ease;
   transform: translateX(0%);
 }
 @media (min-width: 1100px) {
@@ -179,17 +325,565 @@ html {
 }
 .recetas-header .slider .content .items .item {
   width: 100%;
-  background-color: blue;
+  background-color: #FFFFFF;
+  max-width: 280px;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+  border-radius: 1.25rem;
+  padding: 15px;
+  text-decoration: none;
+  transition: 0.2s ease;
+  transform: scale(1);
+  box-shadow: 0 0.125rem 0.25rem transparent;
+  padding-top: 150px;
+}
+.recetas-header .slider .content .items .item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+.recetas-header .slider .content .items .item:hover .information button {
+  border: 2px solid #F6572E;
+  background-color: transparent;
+  color: #F6572E;
+}
+.recetas-header .slider .content .items .item:hover .image img {
+  transform: scale(1.06);
+}
+.recetas-header .slider .content .items .item .image {
+  display: block;
+  width: 85%;
+  position: absolute;
+  top: -20%;
+  max-width: 280px;
+  pointer-events: none;
+  transform: translateY(0%) scale(1);
+  transition: 1.5s ease;
+}
+.recetas-header .slider .content .items .item .image img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  transform: scale(1);
+  transition: 0.5s ease;
+}
+.recetas-header .slider .content .items .item .information h3 {
+  text-align: center;
+  color: #80BC00;
+  font-family: tex_readventor;
+  font-size: 1.25rem;
+}
+.recetas-header .slider .content .items .item .information button {
+  text-decoration: none;
+  width: 100%;
+  background-color: #F6572E;
+  padding: 15px 0px;
+  border: 2px solid transparent;
+  border-radius: 0.625rem;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: 0.2s ease;
+  font-size: 0.875rem;
+  font-family: tex_readventor;
+  text-transform: uppercase;
+  color: #FFFFFF;
 }
 .recetas-header .slider .content .items.right {
-  transform: translateX(120%);
+  transform: translateX(150%);
+}
+.recetas-header .slider .content .items.right .image {
+  transform: translateY(10%) scale(0.6);
 }
 .recetas-header .slider .content .items.left {
-  transform: translateX(-120%);
+  transform: translateX(-150%);
+}
+.recetas-header .slider .content .items.left .image {
+  transform: translateY(10%) scale(0.6);
+}
+.recetas-header .slider .controls {
+  display: none;
+}
+@media (min-width: 901px) {
+  .recetas-header .slider .controls {
+    display: block;
+  }
+}
+.recetas-header .slider .controls button {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  outline: none;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transform: translateY(-50px) scale(1);
+  transition: 0.2s ease;
+}
+.recetas-header .slider .controls button:disabled {
+  opacity: 0.4;
+  cursor: no-drop;
+  pointer-events: none;
+}
+.recetas-header .slider .controls button:hover {
+  transform: translateY(-50px) scale(1.09);
+}
+.recetas-header .slider .controls button img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.recetas-header .slider .controls button.prev {
+  left: 30px;
+}
+@media (min-width: 1600px) {
+  .recetas-header .slider .controls button.prev {
+    left: 50px;
+  }
+}
+.recetas-header .slider .controls button.next {
+  right: 30px;
+  transform: translateY(-50px) scale(1) rotate(180deg);
+}
+@media (min-width: 1600px) {
+  .recetas-header .slider .controls button.next {
+    right: 50px;
+  }
+}
+.recetas-header .slider .controls button.next:hover {
+  transform: translateY(-50px) scale(1.09) rotate(180deg);
 }
 
+.contact-home {
+  padding: 40px 10px;
+  margin-top: 40px;
+  background-color: #AEDB68;
+}
+@media (min-width: 700px) {
+  .contact-home {
+    margin-top: 50px;
+    padding-top: 50px;
+  }
+}
+@media (min-width: 901px) {
+  .contact-home {
+    margin-top: 0px;
+  }
+}
+@media (min-width: 1100px) {
+  .contact-home {
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
+}
+@media (min-width: 1100px) {
+  .contact-home {
+    margin-top: 0px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.contact-home h2 {
+  font-size: 3.4375rem;
+  font-family: chillow_regular;
+  text-transform: uppercase;
+  text-align: center;
+  color: #335C3C;
+  margin: 0px auto auto auto;
+  text-wrap: balance;
+  margin-bottom: 30px;
+  view-timeline-name: --image;
+  view-timeline-axis: block;
+  animation-timeline: --image;
+  animation-name: entryElement;
+  animation-range: entry 25% cover 50%;
+  animation-fill-mode: both;
+}
+@media (min-width: 550px) {
+  .contact-home h2 {
+    font-size: 3.75rem;
+    max-width: 650px;
+  }
+}
+@media (min-width: 700px) {
+  .contact-home h2 {
+    font-size: 4.0625rem;
+  }
+}
+@media (min-width: 901px) {
+  .contact-home h2 {
+    font-size: 4.375rem;
+    max-width: 1200px;
+  }
+}
+@media (min-width: 1100px) {
+  .contact-home h2 {
+    font-size: 5rem;
+  }
+}
+@media (min-width: 1600px) {
+  .contact-home h2 {
+    font-size: 5.3125rem;
+  }
+}
+@media (min-width: 901px) {
+  .contact-home .all {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 30px;
+    max-width: 1200px;
+  }
+}
+.contact-home .all .information {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  width: 100%;
+  view-timeline-name: --image;
+  view-timeline-axis: block;
+  animation-timeline: --image;
+  animation-name: entryElement;
+  animation-range: entry 25% cover 50%;
+  animation-fill-mode: both;
+  margin: auto;
+}
+@media (min-width: 901px) {
+  .contact-home .all .information {
+    height: 100%;
+  }
+}
+@media (min-width: 550px) {
+  .contact-home .all .information {
+    max-width: 650px;
+    grid-gap: 30px;
+  }
+}
+@media (min-width: 901px) {
+  .contact-home .all .information {
+    max-width: 1200px;
+  }
+}
+.contact-home .all .information .video {
+  width: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  max-height: 500px;
+}
+@media (min-width: 901px) {
+  .contact-home .all .information .video {
+    max-height: 100%;
+  }
+}
+.contact-home .all .information .video .wp-video,
+.contact-home .all .information .video .mejs-container {
+  width: 100% !important;
+  height: 100% !important;
+}
+.contact-home .all .information .video .wp-video .mejs-container *,
+.contact-home .all .information .video .mejs-container .mejs-container * {
+  display: flex;
+  align-items: center;
+}
+.contact-home .all .information .text {
+  font-family: tex_readventor;
+  color: #335C3C;
+  font-size: 0.9375rem;
+}
+@media (min-width: 550px) {
+  .contact-home .all .information .text {
+    font-size: 1rem;
+  }
+}
+@media (min-width: 700px) {
+  .contact-home .all .information .text {
+    font-size: 1.0625rem;
+  }
+}
+@media (min-width: 901px) {
+  .contact-home .all .information .text {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+  }
+}
+@media (min-width: 1100px) {
+  .contact-home .all .information .text {
+    font-size: 1.125rem;
+  }
+}
+@media (min-width: 1600px) {
+  .contact-home .all .information .text {
+    font-size: 1.1875rem;
+  }
+}
+.contact-home .all .information .text strong {
+  color: #FFFFFF;
+}
+.contact-home .all .widget {
+  background-color: #E0F0C7;
+  margin: 30px auto auto auto;
+  border-radius: 1.25rem;
+  padding: 15px;
+  view-timeline-name: --image;
+  view-timeline-axis: block;
+  animation-timeline: --image;
+  animation-name: entryElement;
+  animation-range: entry 25% cover 35%;
+  animation-fill-mode: both;
+}
+@media (min-width: 550px) {
+  .contact-home .all .widget {
+    max-width: 650px;
+  }
+}
+@media (min-width: 901px) {
+  .contact-home .all .widget {
+    margin: 0px auto auto auto;
+  }
+}
+@media (min-width: 700px) {
+  .contact-home .all .widget {
+    max-width: 1200px;
+  }
+}
+.contact-home .all .widget .header {
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+  row-gap: 5px;
+}
+@media (min-width: 1100px) {
+  .contact-home .all .widget .header {
+    flex-flow: row;
+    justify-content: center;
+    column-gap: 15px;
+    margin-top: 15px;
+  }
+}
+.contact-home .all .widget .header img {
+  width: 100%;
+  max-width: 175px;
+}
+.contact-home .all .widget .header h4 {
+  font-family: tex_readventor;
+  font-size: 1.5625rem;
+  color: #80BC00;
+}
+.contact-home .all .widget form {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+.contact-home .all .widget form p {
+  width: 100%;
+}
+@media (min-width: 550px) {
+  .contact-home .all .widget form p:nth-of-type(1), .contact-home .all .widget form p:nth-of-type(2), .contact-home .all .widget form p:nth-of-type(4), .contact-home .all .widget form p:nth-of-type(5) {
+    width: calc(50% - 10px);
+  }
+}
+.contact-home .all .widget form label {
+  width: 100%;
+  display: block;
+}
+.contact-home .all .widget form label input,
+.contact-home .all .widget form label select {
+  width: 100%;
+  font-family: tex_readventor;
+  padding: 15px;
+  outline: none;
+  background-color: #FFFFFF;
+  color: #80BC00;
+  border: 1px solid transparent;
+  transition: 0.2s ease;
+  border-radius: 0.625rem;
+  font-size: 0.9375rem;
+}
+@media (min-width: 550px) {
+  .contact-home .all .widget form label input,
+  .contact-home .all .widget form label select {
+    font-size: 1rem;
+  }
+}
+@media (min-width: 700px) {
+  .contact-home .all .widget form label input,
+  .contact-home .all .widget form label select {
+    font-size: 1.0625rem;
+  }
+}
+@media (min-width: 1100px) {
+  .contact-home .all .widget form label input,
+  .contact-home .all .widget form label select {
+    font-size: 1.125rem;
+  }
+}
+@media (min-width: 1600px) {
+  .contact-home .all .widget form label input,
+  .contact-home .all .widget form label select {
+    font-size: 1.1875rem;
+  }
+}
+.contact-home .all .widget form label input::placeholder,
+.contact-home .all .widget form label select::placeholder {
+  color: #80BC00;
+  transition: 0.2s ease;
+  font-size: 0.9375rem;
+}
+@media (min-width: 550px) {
+  .contact-home .all .widget form label input::placeholder,
+  .contact-home .all .widget form label select::placeholder {
+    font-size: 1rem;
+  }
+}
+@media (min-width: 700px) {
+  .contact-home .all .widget form label input::placeholder,
+  .contact-home .all .widget form label select::placeholder {
+    font-size: 1.0625rem;
+  }
+}
+@media (min-width: 1100px) {
+  .contact-home .all .widget form label input::placeholder,
+  .contact-home .all .widget form label select::placeholder {
+    font-size: 1.125rem;
+  }
+}
+@media (min-width: 1600px) {
+  .contact-home .all .widget form label input::placeholder,
+  .contact-home .all .widget form label select::placeholder {
+    font-size: 1.1875rem;
+  }
+}
+.contact-home .all .widget form label input:focus,
+.contact-home .all .widget form label select:focus {
+  border: 1px solid #80BC00;
+}
+.contact-home .all .widget form label input:focus::placeholder {
+  color: #FFFFFF;
+}
+.contact-home .all .widget form input[type=checkbox] {
+  accent-color: #80BC00;
+  width: 20px;
+  height: 20px;
+}
+.contact-home .all .widget form input[type=checkbox]::before {
+  display: none;
+}
+.contact-home .all .widget form .send {
+  display: flex;
+  flex-flow: row-reverse;
+  margin-top: 20px;
+}
+.contact-home .all .widget form .wpcf7-response-output {
+  padding: 0px;
+  margin: 20px 0px 0px 0px;
+  border: none;
+  font-size: 0.9375rem;
+  font-family: tex_readventor;
+}
+@media (min-width: 550px) {
+  .contact-home .all .widget form .wpcf7-response-output {
+    font-size: 1rem;
+  }
+}
+@media (min-width: 700px) {
+  .contact-home .all .widget form .wpcf7-response-output {
+    font-size: 1.0625rem;
+  }
+}
+@media (min-width: 1100px) {
+  .contact-home .all .widget form .wpcf7-response-output {
+    font-size: 1.125rem;
+  }
+}
+@media (min-width: 1600px) {
+  .contact-home .all .widget form .wpcf7-response-output {
+    font-size: 1.1875rem;
+  }
+}
+.contact-home .all .widget form input[type=submit] {
+  background-color: #F6572E;
+  width: 50%;
+  padding: 14px;
+  border: none;
+  border-radius: 0.625rem;
+  font-size: 0.9375rem;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  font-family: tex_readventor;
+}
+@media (min-width: 550px) {
+  .contact-home .all .widget form input[type=submit] {
+    font-size: 1rem;
+    width: calc(50% - 10px);
+  }
+}
+@media (min-width: 700px) {
+  .contact-home .all .widget form input[type=submit] {
+    font-size: 1.0625rem;
+  }
+}
+@media (min-width: 1100px) {
+  .contact-home .all .widget form input[type=submit] {
+    font-size: 1.125rem;
+  }
+}
+@media (min-width: 1600px) {
+  .contact-home .all .widget form input[type=submit] {
+    font-size: 1.1875rem;
+  }
+}
+.contact-home .all .widget form .wpcf7-list-item-label {
+  color: #335C3C;
+}
+.contact-home .all .widget form .wpcf7-list-item,
+.contact-home .all .widget form span {
+  margin-left: 0px;
+  margin-top: 12px;
+  font-family: tex_readventor;
+  font-size: 0.9375rem;
+}
+@media (min-width: 550px) {
+  .contact-home .all .widget form .wpcf7-list-item,
+  .contact-home .all .widget form span {
+    font-size: 1rem;
+  }
+}
+@media (min-width: 700px) {
+  .contact-home .all .widget form .wpcf7-list-item,
+  .contact-home .all .widget form span {
+    font-size: 1.0625rem;
+  }
+}
+@media (min-width: 1100px) {
+  .contact-home .all .widget form .wpcf7-list-item,
+  .contact-home .all .widget form span {
+    font-size: 1.125rem;
+  }
+}
+@media (min-width: 1600px) {
+  .contact-home .all .widget form .wpcf7-list-item,
+  .contact-home .all .widget form span {
+    font-size: 1.1875rem;
+  }
+}
+
+@keyframes entryElement {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 body {
   background-color: #F1F7E7;
+}
+
+.elementor-location-header {
+  z-index: 99999 !important;
 }
 
 /*# sourceMappingURL=global.css.map */

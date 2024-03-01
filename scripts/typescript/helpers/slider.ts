@@ -1,160 +1,211 @@
 
-let htmlElementContent : string | null = null;
+let htmlElementContent : HTMLCollection | null = null;
 let number : number = 3;
+let newHTMLElementContent : string | null = '';
+let getContentSlider : NodeListOf<HTMLElement> | null = null ;
+let getContent : HTMLElement | null = null;
+let getControls : HTMLElement | null = null;
 
-const slider = () => {
+const setItems  = () => {
 
-    const getContentSlider : NodeListOf<HTMLElement> = document.querySelectorAll('.slider');
+    // Obtenemos los items del array
 
-    if(window.innerWidth >= 1025){
-        number  = 4
-    }
+    getContentSlider = document.querySelectorAll('.slider');
 
     if(getContentSlider){
-        
+
         getContentSlider.forEach(( e : HTMLElement ) => {
 
-            const getContent : HTMLElement | null = e.querySelector('.content');
-            const getControls : HTMLElement | null = e.querySelector('.controls');
+            getContent = e.querySelector('.content') as HTMLElement;
+            getControls = e.querySelector('.controls');
+
+            const firstChild : HTMLElement = getContent.children[0] as HTMLElement;
+
+            if(firstChild){
+
+                const heightItems = firstChild.offsetHeight;
+
+                getContent.style.height =  `${heightItems}px`
+
+            }
 
             if(getContent && getControls){
 
-                htmlElementContent = getContent.innerHTML;
+                htmlElementContent = getContent.children;
 
-                const items = htmlElementContent.trim().split('\n').filter(item => item.trim() !== '');
-                const groupedItems : string[] = [];
+            }
+        });
+
+    }
+}
+
+const slider = () => {
+
+    if(window.innerWidth >= 1025){
+        number  = 4
+    }else{
+        number  = 3
+    }
 
 
-                for (let i = 0; i < items.length; i += number) {
-                    // Extraer 4 elementos por iteración
-                    const chunk = items.slice(i, i + number);
-                  
-                    // Si hay elementos en el chunk, agrúpalos
-                    if (chunk.length) {
+    if(getContentSlider && getContent){
 
-                      const group = `<section class="items">\n ${chunk.join('\n')} \n</section>`;
-                      groupedItems.push(group);
+        if(htmlElementContent?.length){
 
+            const convertHTMLElement : Element[] = Array.from(htmlElementContent);
+
+            do{
+
+                const encapsulateElement = convertHTMLElement.slice(0, number);
+                const convertHTML = encapsulateElement.map(element => element.outerHTML);
+                let htmlString : string = '';
+
+                // // Agregamos la nueva clase
+                convertHTML.unshift(`<section class="items ${!newHTMLElementContent?.length ? 'active' : 'right'}">`);
+                convertHTML.push('</section>');
+
+                convertHTML.forEach( e => {
+                    htmlString += e;
+                });
+
+                if(htmlString.length){
+                    newHTMLElementContent += htmlString;
+                }
+
+
+                // Removemos los items del Array
+                convertHTMLElement.splice(0, number);
+
+            }while(convertHTMLElement.length);
+
+            if(newHTMLElementContent){
+                getContent.innerHTML = newHTMLElementContent;
+            }
+
+        }
+    
+
+    }
+}
+
+
+const initSlider = () => {
+
+
+    if(getControls && getContent){
+
+        const prev : HTMLButtonElement | null = getControls.querySelector('.prev');
+        const next : HTMLButtonElement | null = getControls.querySelector('.next');
+
+        if(prev && next){
+
+            prev.onclick = () => {
+
+                next.disabled = false;
+
+                if(runSlider('prev')){
+                    prev.disabled = true;
+                }
+
+            }
+
+            next.onclick = () => {
+
+                prev.disabled = false;
+
+                if(runSlider('next')){
+                    next.disabled = true;
+                }
+
+            }
+
+        }
+
+    }
+
+}
+
+
+const runSlider  = (type : string) => {
+
+    let disabled = false;
+
+    if(getContentSlider){
+
+        getContentSlider.forEach(( e : HTMLElement, key : number ) => {
+
+
+            const allItems : NodeListOf<HTMLElement> = e.querySelectorAll('.items');
+            const allItemsArray : HTMLElement[] = Array.from(allItems);
+            let itemBrother : Element | null = null
+
+            if(allItems.length > 1){
+
+                allItemsArray.some( (item : HTMLElement, key : number) => {
+
+                    if(item.classList.contains('active')){
+    
+                        if(type == 'next'){
+    
+                            itemBrother = item.nextElementSibling;
+    
+                            if(key == (allItemsArray.length - 2)){
+                                disabled = true;
+                            }
+    
+                            if(itemBrother){
+    
+                                item.classList.add('left');
+                                item.classList.remove('active');
+    
+                                itemBrother?.classList.add('active');
+                                itemBrother?.classList.remove('right');
+    
+                                return true;
+    
+                            }
+    
+                        }else if(type == 'prev'){
+    
+                            itemBrother = item.previousElementSibling;
+    
+                            if(key == 1){
+                                disabled = true;
+                            }
+    
+                            if(itemBrother){
+    
+                                item.classList.add('right');
+                                item.classList.remove('active');
+    
+                                itemBrother?.classList.add('active');
+                                itemBrother?.classList.remove('left');
+    
+                                return true;
+    
+                            }
+    
+                        }
+    
                     }
-                }
+    
+                })
+            }else {
 
-                // Unir todos los grupos en una sola cadena
-                const resultString = groupedItems.join('\n');
-
-                getContent.innerHTML = resultString;
-
-                initSlider(getContent, getControls);
-
+                disabled = true;
 
             }
 
-        })
-
-    }
-}
-
-
-const initSlider = (getContent : HTMLElement, getControls : HTMLElement) => {
-
-    const allItems : NodeListOf<HTMLElement> = getContent.querySelectorAll('.items');
-    const prev : HTMLButtonElement | null = getControls.querySelector('.prev');
-    const next : HTMLButtonElement | null = getControls.querySelector('.next');
-
-    setSlider(getContent, allItems, '')
-
-    if(prev && next){
-
-        prev.onclick = () => {
-            if(setSlider(getContent, allItems, 'prev')){
-                next.disabled = true;
-            }
-        }
-
-        next.onclick = () => {
-            if(setSlider(getContent, allItems, 'next')){
-                next.disabled = true;
-            }
-        }
-
+        });
     }
 
-}
-
-const setSlider  = (getContent : HTMLElement, allItems : NodeListOf<HTMLElement>, next : string) : boolean => {
-
-    let intElement : number = 0;
-    let disabledButton : boolean = false;
-
-
-    allItems.forEach( (e : HTMLElement, key : number) => {
-
-
-        // Inicializamos el slider
-        if(!next.length && key == 0){
-            e.classList.add('active');
-        }else if(!next.length){
-            e.classList.add('right');
-        }
-
-        if(next.length){
-            
-            nextElement(e, key, intElement, next)
-
-            if(e.classList.contains('active')){
-
-                intElement = key;
-                e.classList.remove('active');
-    
-                if(next == 'next'){
-                    e.classList.add('left');
-                    e.classList.remove('right');
-                }else if(next == 'prev'){
-                    // e.classList.add('right');
-                    // e.classList.remove('left');
-                }
-    
-            }
-
-            // if(nextElement(e, key, intElement, next) == (allItems.length - 1)){
-            //     disabledButton = true;
-            // }
-        }
-
-    });
-
-    return disabledButton;
+    return disabled;
 
 }
 
-const nextElement = (e : HTMLElement, key : number, intElement : number, type : string) => {
 
-
-    if(type == 'next'){
-
-        if(key == (intElement + 1)){
-
-            e.classList.add('active');
-            e.classList.remove('right');
-            e.classList.remove('left');
-    
-            return key
-            
-        }
-
-    }else if(type == 'prev'){
-
-        if(key == (intElement)){
-
-            e.classList.add('active');
-            e.classList.remove('left');
-            e.classList.remove('right');
-    
-            return key
-            
-        }
-
-    }
-
-}
-
-export default slider;
+export {
+    slider,
+    setItems,
+    initSlider
+};

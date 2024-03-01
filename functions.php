@@ -53,3 +53,18 @@ add_action('admin_enqueue_scripts', function () {
 
     error_log(print_r(get_current_screen(), true));
 });
+
+
+// Registramos el widget
+
+function contact_form_widget() {
+    register_sidebar( array(
+        'name'          => 'Form Area',
+        'id'            => 'form_area',
+        'before_widget' => '<section class="contact">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h2 class="form-title">',
+        'after_title'   => '</h2>',
+    ) );
+}
+add_action( 'widgets_init', 'contact_form_widget' );

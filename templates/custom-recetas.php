@@ -2,7 +2,7 @@
     
     // Configuramos los argumentos de la consulta
     $args = array(
-        'post_type' => 'portafolio_recetas',
+        'post_type' => 'recetas_home_page',
         'posts_per_page' => 1,
         'orderby' => 'date',
         'order' => 'DESC',
@@ -14,12 +14,19 @@
     // Iniciamizamos las variables
     $title; // Esta variable contiene el titulo del post
     $content; // Almacenamos el contenido del post
+    $title_contact; // Almacenamos el contenido del title
+    $video;
+    $text_content;
 
     if ($home_recetas->have_posts()) {
         while ($home_recetas->have_posts()) {
             $home_recetas->the_post();
             $title = get_the_title();
             $content = get_the_content();
+            $title_contact = get_post_meta(get_the_ID(), 'title', true);
+            $video = wp_get_attachment_url(get_post_meta(get_the_ID(), 'video', true));
+            $text_content = get_post_meta(get_the_ID(), 'content-formulario', true);
+
             // $excert = get_the_excerpt();
             // $title_first = get_post_meta(get_the_ID(), 'title_first', true);
             // $content_first = get_post_meta(get_the_ID(), 'first_content', true);
@@ -43,6 +50,9 @@
 
     /** En este archivo contien todo el header de recetas */
     include plugin_dir_path(__DIR__) . 'templates/home/recetas.php';
+
+    /** Aqui se muestran las secciones del home contacto */
+    include plugin_dir_path(__DIR__) . 'templates/home/contact.php';
 
 
     //Footer

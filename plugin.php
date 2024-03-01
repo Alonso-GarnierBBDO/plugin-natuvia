@@ -1,7 +1,7 @@
 <?php
 
 /*
-* Plugin Name:       Recetas Natuvia
+* Plugin Name:       Recetas Natuvia By BBDO
 * Plugin URI:        https://natuvia.co.cr/
 * Description:       Administrador de recetas
 * Version:           1.0.0
@@ -28,7 +28,7 @@ add_action('init', function(){
     // All arguments
     include plugin_dir_path(__FILE__) . 'settings/home/arguments.php';
 
-    register_post_type('portafolio_recetas', $args);
+    register_post_type('recetas_home_page', $args);
 
     /**
      * Esta es la seccion de resetas
@@ -44,16 +44,16 @@ add_action('init', function(){
 
 });
 
-// Asegurarse de que haya solo un único post de este tipo portafolio_recetas
+// Asegurarse de que haya solo un único post de este tipo recetas_home_page
 add_action('wp_loaded', 'ensure_single_custom_slider');
 
 function ensure_single_custom_slider() {
 
-    $existing_sliders = get_posts(array('post_type' => 'portafolio_recetas', 'posts_per_page' => 1));
+    $existing_sliders = get_posts(array('post_type' => 'recetas_home_page', 'posts_per_page' => 1));
 
     if (empty($existing_sliders)) {
         $slider = array(
-            'post_type' => 'portafolio_recetas',
+            'post_type' => 'recetas_home_page',
             'post_title' => 'Home Recipes',
             'post_status' => 'publish',
         );
@@ -71,11 +71,11 @@ function remove_add_new_menu_item() {
     
     global $menu;
 
-    remove_submenu_page('edit.php?post_type=portafolio_recetas', 'post-new.php?post_type=home');
+    remove_submenu_page('edit.php?post_type=recetas_home_page', 'post-new.php?post_type=home');
 
-    // Obtener el primer post del tipo 'portafolio_recetas'
+    // Obtener el primer post del tipo 'recetas_home_page'
     $first_home_post = get_posts(array(
-        'post_type'      => 'portafolio_recetas',
+        'post_type'      => 'recetas_home_page',
         'posts_per_page' => 1,
     ));
 
@@ -90,7 +90,7 @@ function remove_add_new_menu_item() {
 
     // Encuentra el índice del menú que deseas cambiar
     foreach ($menu as $key => $item) {
-        if ($item[2] == 'edit.php?post_type=portafolio_recetas') {
+        if ($item[2] == 'edit.php?post_type=recetas_home_page') {
             // Cambia el enlace del menú
             $menu[$key][2] = 'post.php?post=' . $first_post_id . '&action=edit';
             $menu[$key][4] = 'home-item wp-has-submenu wp-not-current-submenu menu-top menu-icon-slider';

@@ -1,101 +1,126 @@
 var htmlElementContent = null;
 var number = 3;
-var slider = function () {
-    var getContentSlider = document.querySelectorAll('.slider');
-    if (window.innerWidth >= 1025) {
-        number = 4;
-    }
+var newHTMLElementContent = '';
+var getContentSlider = null;
+var getContent = null;
+var getControls = null;
+var setItems = function () {
+    // Obtenemos los items del array
+    getContentSlider = document.querySelectorAll('.slider');
     if (getContentSlider) {
         getContentSlider.forEach(function (e) {
-            var getContent = e.querySelector('.content');
-            var getControls = e.querySelector('.controls');
+            getContent = e.querySelector('.content');
+            getControls = e.querySelector('.controls');
+            var firstChild = getContent.children[0];
+            if (firstChild) {
+                var heightItems = firstChild.offsetHeight;
+                getContent.style.height = "".concat(heightItems, "px");
+            }
             if (getContent && getControls) {
-                htmlElementContent = getContent.innerHTML;
-                var items = htmlElementContent.trim().split('\n').filter(function (item) { return item.trim() !== ''; });
-                var groupedItems = [];
-                for (var i = 0; i < items.length; i += number) {
-                    // Extraer 4 elementos por iteración
-                    var chunk = items.slice(i, i + number);
-                    // Si hay elementos en el chunk, agrúpalos
-                    if (chunk.length) {
-                        var group = "<section class=\"items\">\n ".concat(chunk.join('\n'), " \n</section>");
-                        groupedItems.push(group);
-                    }
-                }
-                // Unir todos los grupos en una sola cadena
-                var resultString = groupedItems.join('\n');
-                getContent.innerHTML = resultString;
-                initSlider(getContent, getControls);
+                htmlElementContent = getContent.children;
             }
         });
     }
 };
-var initSlider = function (getContent, getControls) {
-    var allItems = getContent.querySelectorAll('.items');
-    var prev = getControls.querySelector('.prev');
-    var next = getControls.querySelector('.next');
-    setSlider(getContent, allItems, '');
-    if (prev && next) {
-        prev.onclick = function () {
-            if (setSlider(getContent, allItems, 'prev')) {
-                next.disabled = true;
-            }
-        };
-        next.onclick = function () {
-            if (setSlider(getContent, allItems, 'next')) {
-                next.disabled = true;
-            }
-        };
+var slider = function () {
+    if (window.innerWidth >= 1025) {
+        number = 4;
     }
-};
-var setSlider = function (getContent, allItems, next) {
-    var intElement = 0;
-    var disabledButton = false;
-    allItems.forEach(function (e, key) {
-        // Inicializamos el slider
-        if (!next.length && key == 0) {
-            e.classList.add('active');
-        }
-        else if (!next.length) {
-            e.classList.add('right');
-        }
-        if (next.length) {
-            nextElement(e, key, intElement, next);
-            if (e.classList.contains('active')) {
-                intElement = key;
-                e.classList.remove('active');
-                if (next == 'next') {
-                    e.classList.add('left');
-                    e.classList.remove('right');
+    else {
+        number = 3;
+    }
+    if (getContentSlider && getContent) {
+        if (htmlElementContent === null || htmlElementContent === void 0 ? void 0 : htmlElementContent.length) {
+            var convertHTMLElement = Array.from(htmlElementContent);
+            var _loop_1 = function () {
+                var encapsulateElement = convertHTMLElement.slice(0, number);
+                var convertHTML = encapsulateElement.map(function (element) { return element.outerHTML; });
+                var htmlString = '';
+                // // Agregamos la nueva clase
+                convertHTML.unshift("<section class=\"items ".concat(!(newHTMLElementContent === null || newHTMLElementContent === void 0 ? void 0 : newHTMLElementContent.length) ? 'active' : 'right', "\">"));
+                convertHTML.push('</section>');
+                convertHTML.forEach(function (e) {
+                    htmlString += e;
+                });
+                if (htmlString.length) {
+                    newHTMLElementContent += htmlString;
                 }
-                else if (next == 'prev') {
-                    // e.classList.add('right');
-                    // e.classList.remove('left');
-                }
+                // Removemos los items del Array
+                convertHTMLElement.splice(0, number);
+            };
+            do {
+                _loop_1();
+            } while (convertHTMLElement.length);
+            if (newHTMLElementContent) {
+                getContent.innerHTML = newHTMLElementContent;
             }
-            // if(nextElement(e, key, intElement, next) == (allItems.length - 1)){
-            //     disabledButton = true;
-            // }
-        }
-    });
-    return disabledButton;
-};
-var nextElement = function (e, key, intElement, type) {
-    if (type == 'next') {
-        if (key == (intElement + 1)) {
-            e.classList.add('active');
-            e.classList.remove('right');
-            e.classList.remove('left');
-            return key;
-        }
-    }
-    else if (type == 'prev') {
-        if (key == (intElement)) {
-            e.classList.add('active');
-            e.classList.remove('left');
-            e.classList.remove('right');
-            return key;
         }
     }
 };
-export default slider;
+var initSlider = function () {
+    if (getControls && getContent) {
+        var prev_1 = getControls.querySelector('.prev');
+        var next_1 = getControls.querySelector('.next');
+        if (prev_1 && next_1) {
+            prev_1.onclick = function () {
+                next_1.disabled = false;
+                if (runSlider('prev')) {
+                    prev_1.disabled = true;
+                }
+            };
+            next_1.onclick = function () {
+                prev_1.disabled = false;
+                if (runSlider('next')) {
+                    next_1.disabled = true;
+                }
+            };
+        }
+    }
+};
+var runSlider = function (type) {
+    var disabled = false;
+    if (getContentSlider) {
+        getContentSlider.forEach(function (e, key) {
+            var allItems = e.querySelectorAll('.items');
+            var allItemsArray = Array.from(allItems);
+            var itemBrother = null;
+            if (allItems.length > 1) {
+                allItemsArray.some(function (item, key) {
+                    if (item.classList.contains('active')) {
+                        if (type == 'next') {
+                            itemBrother = item.nextElementSibling;
+                            if (key == (allItemsArray.length - 2)) {
+                                disabled = true;
+                            }
+                            if (itemBrother) {
+                                item.classList.add('left');
+                                item.classList.remove('active');
+                                itemBrother === null || itemBrother === void 0 ? void 0 : itemBrother.classList.add('active');
+                                itemBrother === null || itemBrother === void 0 ? void 0 : itemBrother.classList.remove('right');
+                                return true;
+                            }
+                        }
+                        else if (type == 'prev') {
+                            itemBrother = item.previousElementSibling;
+                            if (key == 1) {
+                                disabled = true;
+                            }
+                            if (itemBrother) {
+                                item.classList.add('right');
+                                item.classList.remove('active');
+                                itemBrother === null || itemBrother === void 0 ? void 0 : itemBrother.classList.add('active');
+                                itemBrother === null || itemBrother === void 0 ? void 0 : itemBrother.classList.remove('left');
+                                return true;
+                            }
+                        }
+                    }
+                });
+            }
+            else {
+                disabled = true;
+            }
+        });
+    }
+    return disabled;
+};
+export { slider, setItems, initSlider };

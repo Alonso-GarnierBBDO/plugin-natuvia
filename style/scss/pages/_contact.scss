@@ -1,0 +1,451 @@
+.contact-home {
+
+    padding: 40px 10px;
+    margin-top: 40px;
+    background-color: $color-background;
+
+    @include bp(tablet){
+        margin-top: 50px;
+        padding-top: 50px;
+    }
+
+    @include bp(tabletMD){
+        margin-top: 0px;
+    }
+
+    @include bp(laptop){
+        padding-top: 90px;
+        padding-bottom: 90px;
+    }
+
+    @include bp(laptop){
+
+        margin-top: 0px;
+        // min-height: 100dvh;
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+
+    h2 {
+
+        font-size: rem(55px);
+        font-family: $font-regular;
+        text-transform: uppercase;
+        text-align: center;
+        color: $secundary_color;
+        margin: 0px auto auto auto;
+        text-wrap: balance;
+        margin-bottom: 30px;
+        view-timeline-name: --image;
+        view-timeline-axis: block;
+        animation-timeline: --image;
+        animation-name: entryElement;
+        animation-range: entry 25% cover 50%;
+        animation-fill-mode: both;
+
+        @include bp(mobileBIG){
+            font-size: rem(60px);
+            max-width: 650px;
+        }
+        
+
+        @include bp(tablet){
+            font-size: rem(65px);
+        }
+
+        @include bp(tabletMD){
+            font-size: rem(70px);
+            max-width: 1200px;
+        }
+
+        @include bp(laptop){
+            font-size: rem(80px);
+        }
+
+        @include bp(escritorio){
+            font-size: rem(85px);
+        }
+
+
+    }
+
+    .all {
+
+        @include bp(tabletMD){
+
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 30px;
+            max-width: 1200px;
+
+        }
+
+        .information {
+
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 10px;
+            width: 100%;
+            view-timeline-name: --image;
+            view-timeline-axis: block;
+            animation-timeline: --image;
+            animation-name: entryElement;
+            animation-range: entry 25% cover 50%;
+            animation-fill-mode: both;
+            margin: auto;
+
+            @include bp(tabletMD){
+                height: 100%;
+            }
+
+            @include bp(mobileBIG){
+
+                max-width: 650px;
+                grid-gap: 30px;
+
+            }
+
+            @include bp(tabletMD){
+
+                max-width: 1200px;
+
+            }
+
+            .video {
+
+                width: 100%;
+                border-radius: 18px;
+                overflow: hidden;
+                max-height: 500px;
+
+                @include bp(tabletMD){
+                    max-height: 100%;
+                }
+
+                .wp-video,
+                .mejs-container{
+
+                    width: 100% !important;
+                    height: 100% !important;
+
+                    .mejs-container * {
+
+                        display: flex;
+                        align-items: center;
+
+                    }
+
+                }
+
+            }
+
+            .text {
+
+                font-family: $font-bold;
+                color: $secundary_color;
+                font-size: rem(15px);
+
+                @include bp(mobileBIG){
+                    font-size: rem(16px);
+                }
+        
+                @include bp(tablet){
+                    font-size: rem(17px);
+                }
+
+                @include bp(tabletMD){
+                    display: flex;
+                    flex-flow: column;
+                    justify-content: center;
+                }
+        
+                @include bp(laptop){
+                    font-size: rem(18px);
+                }
+        
+                @include bp(escritorio){
+                    font-size: rem(19px);
+                }
+
+                strong {
+
+                    color: $color-boxs-white;
+
+                }
+
+            }
+
+        }
+
+        .widget {
+
+            background-color: $color-contact;
+            margin: 30px auto auto auto;
+            border-radius: rem(20px);
+            padding: 15px;
+            view-timeline-name: --image;
+            view-timeline-axis: block;
+            animation-timeline: --image;
+            animation-name: entryElement;
+            animation-range: entry 25% cover 35%;
+            animation-fill-mode: both;
+
+            @include bp(mobileBIG){
+
+                max-width: 650px;
+
+            }
+
+            @include bp(tabletMD){
+                margin: 0px auto auto auto;
+            }
+
+            @include bp(tablet){
+                max-width: 1200px;
+            }
+
+            .header {
+
+                display: flex;
+                align-items: center;
+                flex-flow: column;
+                row-gap: 5px;
+
+                @include bp(laptop){
+                    flex-flow: row;
+                    justify-content: center;
+                    column-gap: 15px;
+                    margin-top: 15px;
+                }
+
+                img {
+
+                    width: 100%;
+                    max-width: 175px;
+
+                }
+
+                h4 {
+                    font-family: $font-bold;
+                    font-size: rem(25px);
+                    color: $principal_text_color;
+                }
+
+            }
+
+            form {
+
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: space-between;
+
+                p {
+
+                    width: 100%;
+
+                    @include bp(mobileBIG){
+                        &:nth-of-type(1),
+                        &:nth-of-type(2),
+                        &:nth-of-type(4),
+                        &:nth-of-type(5){
+                            width: calc(50% - 10px);
+                        }
+                    }
+
+                }
+
+                label {
+                    width: 100%;
+                    display: block;
+
+                    input,
+                    select{
+                        width: 100%;
+                        font-family: $font-bold;
+                        padding: 15px;
+                        outline: none;
+                        background-color: $color-boxs-white;
+                        color: $principal_text_color;
+                        border: 1px solid transparent;
+                        transition: .2s ease;
+                        border-radius: rem(10px);
+                        font-size: rem(15px);
+
+                        @include bp(mobileBIG){
+                            font-size: rem(16px);
+                        }
+                
+                        @include bp(tablet){
+                            font-size: rem(17px);
+                        }
+                
+                        @include bp(laptop){
+                            font-size: rem(18px);
+                        }
+                
+                        @include bp(escritorio){
+                            font-size: rem(19px);
+                        }
+
+                        &::placeholder{
+                            color: $principal_text_color;
+                            transition: .2s ease;
+                            font-size: rem(15px);
+
+                            @include bp(mobileBIG){
+                                font-size: rem(16px);
+                            }
+                    
+                            @include bp(tablet){
+                                font-size: rem(17px);
+                            }
+                    
+                            @include bp(laptop){
+                                font-size: rem(18px);
+                            }
+                    
+                            @include bp(escritorio){
+                                font-size: rem(19px);
+                            }
+
+                        }
+
+
+                        &:focus {
+                            border: 1px solid $principal_text_color;
+                        }
+
+                    }
+
+                    input:focus::placeholder {
+                        color: $color-boxs-white;
+                    }
+
+
+                }
+
+                input[type="checkbox"]{
+                    accent-color: $principal_text_color;
+                    width: 20px;
+                    height: 20px;
+                }
+
+                input[type="checkbox"]::before{
+                    display: none;
+                }
+
+                .send {
+
+                    display: flex;
+                    flex-flow: row-reverse;
+                    margin-top: 20px;
+
+                }
+
+                .wpcf7-response-output {
+
+                    padding: 0px;
+                    margin: 20px 0px 0px 0px;
+                    border: none;
+                    font-size: rem(15px);
+                    font-family: $font-bold;
+
+                    @include bp(mobileBIG){
+                        font-size: rem(16px);
+                    }
+            
+                    @include bp(tablet){
+                        font-size: rem(17px);
+                    }
+            
+                    @include bp(laptop){
+                        font-size: rem(18px);
+                    }
+            
+                    @include bp(escritorio){
+                        font-size: rem(19px);
+                    }
+
+                }
+
+                input[type="submit"]{
+                    background-color: $color-link-recetas;
+                    width: 50%;
+                    padding: 14px;
+                    border: none;
+                    border-radius: rem(10px);
+                    font-size: rem(15px);
+                    color: $color-boxs-white;
+                    text-transform: uppercase;
+                    font-family: $font-bold;
+
+                    @include bp(mobileBIG){
+                        font-size: rem(16px);
+                        width: calc(50% - 10px);
+                    }
+            
+                    @include bp(tablet){
+                        font-size: rem(17px);
+                    }
+            
+                    @include bp(laptop){
+                        font-size: rem(18px);
+                    }
+            
+                    @include bp(escritorio){
+                        font-size: rem(19px);
+                    }
+
+                }
+
+                .wpcf7-list-item-label {
+                    color: $secundary_color;
+                }
+
+                .wpcf7-list-item,
+                span {
+                    margin-left: 0px;
+                    margin-top: 12px;
+                    font-family: $font-bold;
+                    font-size: rem(15px);
+
+                    @include bp(mobileBIG){
+                        font-size: rem(16px);
+                    }
+            
+                    @include bp(tablet){
+                        font-size: rem(17px);
+                    }
+            
+                    @include bp(laptop){
+                        font-size: rem(18px);
+                    }
+            
+                    @include bp(escritorio){
+                        font-size: rem(19px);
+                    }
+                }
+
+            }
+
+        }
+
+
+    }
+
+}
+
+
+@keyframes entryElement {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

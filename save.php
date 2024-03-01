@@ -6,7 +6,7 @@
 
     function save_application_home_recibes($post_id){
 
-        if (!isset($_POST['post_type']) || $_POST['post_type'] !== 'portafolio_recetas') return $post_id;
+        if (!isset($_POST['post_type']) || $_POST['post_type'] !== 'recetas_home_page') return $post_id;
 
         if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return $post_id;
     

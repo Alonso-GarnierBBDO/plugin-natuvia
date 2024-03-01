@@ -14,10 +14,10 @@
         'hierarchical' => false,
         'menu_position' => null,
         'supports' =>  array('title', 'thumbnail'),
-        'menu_icon' => 'dashicons-admin-home',
+        'menu_icon' => 'dashicons-post-status',
         'show_in_rest' => false,
-        'rest_base' => 'home-recipes',
-        'rest_namespace' => 'home-recipes',
+        'rest_base' => 'home-recipes-page',
+        'rest_namespace' => 'home-recipes-page',
         'register_meta_box_cb' => function () {
             // All arguments
             include plugin_dir_path(__FILE__) . 'boxs/descriptions.php';
