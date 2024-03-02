@@ -4,6 +4,11 @@
 @import './pages/recetas';
 @import './pages/sliders';
 @import './pages/contact';
+@import './components/footer';
+@import './pages/individual_recetas';
+@import './pages/history';
+@import './pages/information';
+@import './pages/bienestar';
 
 body{
     background-color: $principal_color;

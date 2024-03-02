@@ -15,9 +15,9 @@
     // }
 
 
-    @include bp(laptop){
-        min-height: 80dvh;
-    }
+    // @include bp(laptop){
+    //     min-height: 80dvh;
+    // }
     
     .content_mobile{
 
@@ -220,7 +220,7 @@
                     transition: .2s ease;
                     transform: scale(1);
                     box-shadow: 0 .125rem .25rem transparent;
-                    padding-top: 150px;
+                    padding-top: 180px;
 
                     &:hover{
 

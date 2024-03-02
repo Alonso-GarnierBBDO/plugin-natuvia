@@ -1,0 +1,272 @@
+.ingredients_recetas{
+
+    width: 100%;
+    margin-top: 115px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 10px;
+
+    @include bp(mobileBIG){
+        max-width: 650px;
+        margin: 115px auto auto auto;
+    }
+
+    @include bp(tablet){
+        margin-top: 158px;
+    }
+
+    @include bp(tabletMD){
+        max-width: 1200px;
+    }
+
+    @include bp(laptop){
+        margin-top: 150px;
+    }
+
+    .header_recetas {
+
+        display: flex;
+        flex-flow: column;
+        row-gap: 10px;
+
+        @include bp(tabletMD){
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 10px;
+            align-items: start;
+            
+        }
+
+        @include bp(laptop){
+            grid-template-columns: 1.2fr 0.8fr;
+            grid-gap: 30px;
+            
+        }
+
+        .thumbnail {
+
+            width: 100%;
+            overflow: hidden;
+            border-radius: rem(15px);
+
+            @include bp(tabletMD){
+                flex-flow: row;
+                align-items: flex-start;
+                column-gap: 15px;
+                position: sticky;
+                top: 158px;
+                height: auto;
+                height: 100%;
+                max-height: 70dvh;
+            }
+
+            @include bp(laptop){
+                position: sticky;
+                top: 150px;
+            }
+    
+            img {
+    
+                width: 100%;
+                height: auto;
+                display: block;
+
+                @include bp(tabletMD){
+                    height: 100%;
+                    object-fit: cover;
+                }
+    
+            }
+    
+        }
+    
+        .content_header {
+    
+            background-color: $color-boxs-white;
+            padding: 30px;
+            border-radius: rem(15px);
+
+            @include bp(tabletMD){
+                height: auto;
+                padding: 50px;
+            }
+    
+            h1 {
+                text-align: left;
+                text-wrap: balance;
+                font-family: $font-regular;
+                font-size: rem(40px);
+                color: $principal_text_color;
+
+                @include bp(tabletMD){
+                    font-size: rem(50px);
+                }
+
+                @include bp(laptop){
+                    font-size: rem(60px);
+                }
+
+            }
+
+            .porciones {
+
+                display: block;
+                margin: 10px 0px 15px 0px;
+                font-family: $font-bold;
+                color: $principal_text_color;
+                font-size: rem(15px);
+
+                @include bp(mobileBIG){
+                    font-size: rem(16px);
+                }
+        
+                @include bp(tablet){
+                    font-size: rem(17px);
+                }
+        
+                @include bp(laptop){
+                    font-size: rem(18px);
+                    margin-bottom: 25px;
+                }
+        
+                @include bp(escritorio){
+                    font-size: rem(19px);
+                }
+
+            }
+
+            hr {
+
+                border: none;
+                height: 1px;
+                background-color: $color-link-recetas;
+
+            }
+            
+            h2 {
+
+                margin-top: 15px;
+                margin-bottom: 15px;
+                font-family: $font-regular;
+                color: $color-link-recetas;
+                font-size: rem(28px);
+
+                @include bp(tabletMD){
+                    font-size: rem(35px);
+                    margin-top: 30px;
+                }
+
+                @include bp(laptop){
+                    font-size: rem(40px);
+                }
+
+
+            }
+
+            .content {
+
+                font-family: $font-bold;
+                color: $color-content;
+                font-size: rem(15px);
+
+                @include bp(mobileBIG){
+                    font-size: rem(16px);
+                }
+        
+                @include bp(tablet){
+                    font-size: rem(17px);
+                }
+        
+                @include bp(laptop){
+                    font-size: rem(18px);
+                }
+        
+                @include bp(escritorio){
+                    font-size: rem(19px);
+                }
+
+            }
+    
+        }
+
+    }
+
+    .instructions {
+
+        background-color: $color-boxs-white;
+        padding: 30px;
+        border-radius: rem(15px);
+        margin-top: 10px;
+        width: 100%;
+
+        @include bp(tabletMD){
+            padding: 50px;
+            margin-top: 30px;
+        }
+
+        @include bp(laptop){
+            display: flex;
+            flex-flow: row;
+            column-gap: 55px;
+        }
+
+        hr {
+
+            border: none;
+            height: 1px;
+            background-color: $color-link-recetas;
+            margin-bottom: 10px;
+
+            @include bp(laptop){
+                width: 50%;
+                height: 2px;
+            }
+
+        }
+        
+        h2 {
+
+            margin-bottom: 15px;
+            font-family: $font-regular;
+            color: $color-link-recetas;
+            font-size: rem(28px);
+
+            @include bp(tabletMD){
+                font-size: rem(35px);
+            }
+
+            @include bp(laptop){
+                font-size: rem(40px);
+            }
+
+        }
+
+        .content {
+
+            font-family: $font-bold;
+            color: $color-content;
+            font-size: rem(12px);
+
+            @include bp(mobileBIG){
+                font-size: rem(13px);
+            }
+    
+            @include bp(tablet){
+                font-size: rem(14px);
+            }
+    
+            @include bp(laptop){
+                font-size: rem(15px);
+            }
+    
+            @include bp(escritorio){
+                font-size: rem(16px);
+            }
+
+        }
+
+    }
+
+}

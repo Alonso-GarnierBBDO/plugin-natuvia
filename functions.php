@@ -5,10 +5,10 @@
 function recetas_style() {
 
     global $wp_query;
-    
-    $pageName = $wp_query->query_vars['pagename'];
 
-    if (isset($pageName) && $pageName == "portafolio-recetas") {
+    $pageName = get_post_type( $post );
+
+    if (isset($pageName) && ($pageName == 'recetas_home_page' || $pageName == 'all_recetas')) {
         wp_enqueue_style('plugin-recetas-style', plugin_dir_url(__FILE__) . 'style/css/global.css');
     }
 }
@@ -29,15 +29,59 @@ wp_register_script('script', plugin_dir_url(__FILE__) . 'scripts/javascript/scri
 wp_enqueue_script('script');
 add_filter("script_loader_tag", "recetas_javascript_module", 10, 3);
 
-function custom_recetas( $page_template )
-{
-    if ( is_page( 'portafolio-recetas' ) ) {
-        $page_recetas_template = dirname( __FILE__ ) . '/templates/custom-recetas.php';
+
+/** Registar una pagina */
+// function custom_recetas( $page_template )
+// {
+//     if ( is_page( 'recetas-portafolio' ) ) {
+//         $page_recetas_template = dirname( __FILE__ ) . '/templates/custom-recetas.php';
+//     }
+//     return $page_recetas_template;
+// }
+
+// add_filter( 'page_template', 'custom_recetas' );
+
+/** Registrar una archivo.php para el post type */
+
+function custom_archivo_file($template){
+
+    
+    if(is_post_type_archive('all_recetas')){
+
+        $new_template = dirname( __FILE__ ) . '/templates/custom-recetas.php';
+
+        if(file_exists($new_template)){
+            return $new_template;
+        }
+
     }
-    return $page_recetas_template;
+
+    return $template;
+
 }
 
-add_filter( 'page_template', 'custom_recetas' );
+add_filter('template_include', 'custom_archivo_file', 99);
+
+
+// Registramos el single de las recetas
+
+function custom_single_file($template){
+
+
+    if(is_singular('all_recetas')){
+
+        $new_template = dirname( __FILE__ ) . '/templates/individual_receta.php';
+
+        if(file_exists($new_template)){
+            return $new_template;
+        }
+
+    }
+
+    return $template;
+}
+
+add_filter('template_include', 'custom_single_file', 99);
 
 
 // Adjuntamos las configuraciones de imagenes
@@ -68,3 +112,4 @@ function contact_form_widget() {
     ) );
 }
 add_action( 'widgets_init', 'contact_form_widget' );
+

@@ -1,5 +1,6 @@
 <?php
-    
+
+        
     // Configuramos los argumentos de la consulta
     $args = array(
         'post_type' => 'recetas_home_page',
@@ -26,19 +27,6 @@
             $title_contact = get_post_meta(get_the_ID(), 'title', true);
             $video = wp_get_attachment_url(get_post_meta(get_the_ID(), 'video', true));
             $text_content = get_post_meta(get_the_ID(), 'content-formulario', true);
-
-            // $excert = get_the_excerpt();
-            // $title_first = get_post_meta(get_the_ID(), 'title_first', true);
-            // $content_first = get_post_meta(get_the_ID(), 'first_content', true);
-            // $galery_first = get_post_meta(get_the_ID(), 'first_galery', true);
-            // $array_galery = json_decode($galery_first, true);
-            // $image_two = get_the_post_thumbnail();
-            // $title_second = get_post_meta(get_the_ID(), 'title_second', true);
-            // $content_second = get_post_meta(get_the_ID(), 'second_content', true);
-            // $titlebutton = get_post_meta(get_the_ID(), 'titlebutton_secont', true);
-            // $linkbutton = get_post_meta(get_the_ID(), 'buttonaction_secont', true);
-            // $externalbutton = get_post_meta(get_the_ID(), 'buttonexternal_secont', true);
-
         }
     }
 
@@ -54,6 +42,7 @@
     /** Aqui se muestran las secciones del home contacto */
     include plugin_dir_path(__DIR__) . 'templates/home/contact.php';
 
+    comments_template();
 
     //Footer
     include plugin_dir_path(__DIR__) . 'templates/components/footer.php';

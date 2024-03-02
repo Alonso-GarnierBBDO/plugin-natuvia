@@ -1,0 +1,154 @@
+.bienestar_section {
+    background-color: $color-background;
+    padding: 30px 20px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    padding-bottom: 50px;
+
+    @include bp(tabletMD){
+        padding-top: 50px;
+    }
+
+    @include bp(laptop){
+        padding-top: 60px;
+    }
+
+    .bienestar {
+
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+
+        @include bp(mobileBIG){
+            max-width: 650px;
+            margin: auto;
+        }
+
+        @include bp(tabletMD){
+            max-width: 1200px;
+        }
+
+        @include bp(laptop){
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+        }
+    }
+
+    .image {
+
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @include bp(mobileBIG){
+
+            max-width: 400px;
+
+        }
+
+        .sombra {
+
+            position: absolute;
+            border-radius: 50%;
+            width: 40%;
+            height: 40%;
+            background-color: rgba(255, 255, 255, 0.6);
+            box-shadow: 0px 0px 74px 56px rgba(255, 255, 255, 0.643);
+
+        }
+
+        img {
+
+            width: 100%;
+            height: auto;
+            z-index: 99;
+
+        }
+
+    }
+
+    .bienestar_content {
+
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: center;
+
+        h2 {
+
+            background-color: $principal_color;
+            width: fit-content;
+            padding: 10px;
+            border-radius: rem(10px);
+            color: $color-content;
+            font-family: $font-regular;
+            padding-top: 14px;
+            font-size: rem(28px);
+            text-align: center;
+            margin-bottom: 25px;
+    
+    
+            @include bp(tabletMD){
+                font-size: rem(45px);
+                padding-top: 17px;
+            }
+    
+            @include bp(laptop){
+                font-size: rem(50px);
+                padding-top: 19px;
+            }
+    
+    
+        }
+
+        h3 {
+
+            color: $principal_color;
+            font-family: $font-regular;
+            font-size: rem(28px);
+            text-align: center;
+            margin-bottom: 15px;
+    
+            @include bp(tabletMD){
+                font-size: rem(45px);
+                padding-top: 17px;
+            }
+    
+            @include bp(laptop){
+                font-size: rem(50px);
+                padding-top: 19px;
+            }
+
+        }
+
+        .content {
+
+            font-family: $font-bold;
+            color: $color-content;
+            font-size: rem(15px);
+            text-align: center;
+
+            @include bp(mobileBIG){
+                font-size: rem(16px);
+            }
+    
+            @include bp(tablet){
+                font-size: rem(17px);
+            }
+    
+            @include bp(laptop){
+                font-size: rem(18px);
+            }
+    
+            @include bp(escritorio){
+                font-size: rem(19px);
+            }
+
+        }
+
+    }
+
+}

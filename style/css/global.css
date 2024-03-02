@@ -161,11 +161,6 @@ html {
   }
 }
 
-@media (min-width: 1100px) {
-  .recetas-header {
-    min-height: 80dvh;
-  }
-}
 @media (min-width: 901px) {
   .recetas-header .content_mobile {
     display: none;
@@ -338,7 +333,7 @@ html {
   transition: 0.2s ease;
   transform: scale(1);
   box-shadow: 0 0.125rem 0.25rem transparent;
-  padding-top: 150px;
+  padding-top: 180px;
 }
 .recetas-header .slider .content .items .item:hover {
   transform: scale(1.05);
@@ -469,6 +464,8 @@ html {
 @media (min-width: 901px) {
   .contact-home {
     margin-top: 0px;
+    padding-top: 80px;
+    padding-bottom: 80px;
   }
 }
 @media (min-width: 1100px) {
@@ -491,7 +488,7 @@ html {
   font-family: chillow_regular;
   text-transform: uppercase;
   text-align: center;
-  color: #335C3C;
+  color: #FFFFFF;
   margin: 0px auto auto auto;
   text-wrap: balance;
   margin-bottom: 30px;
@@ -537,6 +534,16 @@ html {
     max-width: 1200px;
   }
 }
+@media (min-width: 1100px) {
+  .contact-home .all {
+    grid-template-columns: 0.9fr 1.1fr;
+  }
+}
+@media (min-width: 1600px) {
+  .contact-home .all {
+    grid-template-columns: 0.8fr 1.2fr;
+  }
+}
 .contact-home .all .information {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -549,6 +556,7 @@ html {
   animation-range: entry 25% cover 50%;
   animation-fill-mode: both;
   margin: auto;
+  align-content: center;
 }
 @media (min-width: 901px) {
   .contact-home .all .information {
@@ -571,10 +579,12 @@ html {
   border-radius: 18px;
   overflow: hidden;
   max-height: 500px;
+  display: flex;
+  align-items: center;
 }
 @media (min-width: 901px) {
   .contact-home .all .information .video {
-    max-height: 100%;
+    max-height: 50dvh;
   }
 }
 .contact-home .all .information .video .wp-video,
@@ -644,7 +654,7 @@ html {
     margin: 0px auto auto auto;
   }
 }
-@media (min-width: 700px) {
+@media (min-width: 901px) {
   .contact-home .all .widget {
     max-width: 1200px;
   }
@@ -767,6 +777,7 @@ html {
   accent-color: #80BC00;
   width: 20px;
   height: 20px;
+  cursor: pointer;
 }
 .contact-home .all .widget form input[type=checkbox]::before {
   display: none;
@@ -813,6 +824,13 @@ html {
   color: #FFFFFF;
   text-transform: uppercase;
   font-family: tex_readventor;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+.contact-home .all .widget form input[type=submit]:hover {
+  border: 2px solid #F6572E;
+  background-color: transparent;
+  color: #F6572E;
 }
 @media (min-width: 550px) {
   .contact-home .all .widget form input[type=submit] {
@@ -837,6 +855,7 @@ html {
 }
 .contact-home .all .widget form .wpcf7-list-item-label {
   color: #335C3C;
+  cursor: pointer;
 }
 .contact-home .all .widget form .wpcf7-list-item,
 .contact-home .all .widget form span {
@@ -878,6 +897,647 @@ html {
     opacity: 1;
   }
 }
+.footer_recetas {
+  padding: 40px 10px;
+}
+@media (min-width: 550px) {
+  .footer_recetas {
+    max-width: 650px;
+    margin: auto;
+  }
+}
+@media (min-width: 901px) {
+  .footer_recetas {
+    max-width: 1200px;
+    padding: 30px 10px;
+  }
+}
+@media (min-width: 700px) {
+  .footer_recetas {
+    display: flex;
+    flex-flow: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+.footer_recetas .social {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+@media (min-width: 700px) {
+  .footer_recetas .social {
+    justify-content: flex-end;
+    column-gap: 10px;
+    margin-bottom: 0px;
+  }
+}
+.footer_recetas .social a {
+  display: flex;
+  align-items: center;
+}
+.footer_recetas .social a img {
+  max-width: 40px;
+}
+.footer_recetas .derechos {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  column-gap: 10px;
+}
+@media (min-width: 700px) {
+  .footer_recetas .derechos {
+    align-items: flex-start;
+  }
+}
+@media (min-width: 901px) {
+  .footer_recetas .derechos {
+    flex-flow: row;
+  }
+}
+.footer_recetas .derechos img {
+  max-width: 200px;
+}
+.footer_recetas .derechos p {
+  margin-top: 15px;
+  font-size: 0.9375rem;
+  font-family: tex_readventor;
+  color: #335C3C;
+}
+@media (min-width: 550px) {
+  .footer_recetas .derechos p {
+    font-size: 1rem;
+  }
+}
+@media (min-width: 700px) {
+  .footer_recetas .derechos p {
+    font-size: 1.0625rem;
+  }
+}
+@media (min-width: 1100px) {
+  .footer_recetas .derechos p {
+    font-size: 1.125rem;
+  }
+}
+@media (min-width: 1600px) {
+  .footer_recetas .derechos p {
+    font-size: 1.1875rem;
+  }
+}
+
+.ingredients_recetas {
+  width: 100%;
+  margin-top: 115px;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 10px;
+}
+@media (min-width: 550px) {
+  .ingredients_recetas {
+    max-width: 650px;
+    margin: 115px auto auto auto;
+  }
+}
+@media (min-width: 700px) {
+  .ingredients_recetas {
+    margin-top: 158px;
+  }
+}
+@media (min-width: 901px) {
+  .ingredients_recetas {
+    max-width: 1200px;
+  }
+}
+@media (min-width: 1100px) {
+  .ingredients_recetas {
+    margin-top: 150px;
+  }
+}
+.ingredients_recetas .header_recetas {
+  display: flex;
+  flex-flow: column;
+  row-gap: 10px;
+}
+@media (min-width: 901px) {
+  .ingredients_recetas .header_recetas {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    align-items: start;
+  }
+}
+@media (min-width: 1100px) {
+  .ingredients_recetas .header_recetas {
+    grid-template-columns: 1.2fr 0.8fr;
+    grid-gap: 30px;
+  }
+}
+.ingredients_recetas .header_recetas .thumbnail {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 0.9375rem;
+}
+@media (min-width: 901px) {
+  .ingredients_recetas .header_recetas .thumbnail {
+    flex-flow: row;
+    align-items: flex-start;
+    column-gap: 15px;
+    position: sticky;
+    top: 158px;
+    height: auto;
+    height: 100%;
+    max-height: 70dvh;
+  }
+}
+@media (min-width: 1100px) {
+  .ingredients_recetas .header_recetas .thumbnail {
+    position: sticky;
+    top: 150px;
+  }
+}
+.ingredients_recetas .header_recetas .thumbnail img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+@media (min-width: 901px) {
+  .ingredients_recetas .header_recetas .thumbnail img {
+    height: 100%;
+    object-fit: cover;
+  }
+}
+.ingredients_recetas .header_recetas .content_header {
+  background-color: #FFFFFF;
+  padding: 30px;
+  border-radius: 0.9375rem;
+}
+@media (min-width: 901px) {
+  .ingredients_recetas .header_recetas .content_header {
+    height: auto;
+    padding: 50px;
+  }
+}
+.ingredients_recetas .header_recetas .content_header h1 {
+  text-align: left;
+  text-wrap: balance;
+  font-family: chillow_regular;
+  font-size: 2.5rem;
+  color: #80BC00;
+}
+@media (min-width: 901px) {
+  .ingredients_recetas .header_recetas .content_header h1 {
+    font-size: 3.125rem;
+  }
+}
+@media (min-width: 1100px) {
+  .ingredients_recetas .header_recetas .content_header h1 {
+    font-size: 3.75rem;
+  }
+}
+.ingredients_recetas .header_recetas .content_header .porciones {
+  display: block;
+  margin: 10px 0px 15px 0px;
+  font-family: tex_readventor;
+  color: #80BC00;
+  font-size: 0.9375rem;
+}
+@media (min-width: 550px) {
+  .ingredients_recetas .header_recetas .content_header .porciones {
+    font-size: 1rem;
+  }
+}
+@media (min-width: 700px) {
+  .ingredients_recetas .header_recetas .content_header .porciones {
+    font-size: 1.0625rem;
+  }
+}
+@media (min-width: 1100px) {
+  .ingredients_recetas .header_recetas .content_header .porciones {
+    font-size: 1.125rem;
+    margin-bottom: 25px;
+  }
+}
+@media (min-width: 1600px) {
+  .ingredients_recetas .header_recetas .content_header .porciones {
+    font-size: 1.1875rem;
+  }
+}
+.ingredients_recetas .header_recetas .content_header hr {
+  border: none;
+  height: 1px;
+  background-color: #F6572E;
+}
+.ingredients_recetas .header_recetas .content_header h2 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-family: chillow_regular;
+  color: #F6572E;
+  font-size: 1.75rem;
+}
+@media (min-width: 901px) {
+  .ingredients_recetas .header_recetas .content_header h2 {
+    font-size: 2.1875rem;
+    margin-top: 30px;
+  }
+}
+@media (min-width: 1100px) {
+  .ingredients_recetas .header_recetas .content_header h2 {
+    font-size: 2.5rem;
+  }
+}
+.ingredients_recetas .header_recetas .content_header .content {
+  font-family: tex_readventor;
+  color: #225D38;
+  font-size: 0.9375rem;
+}
+@media (min-width: 550px) {
+  .ingredients_recetas .header_recetas .content_header .content {
+    font-size: 1rem;
+  }
+}
+@media (min-width: 700px) {
+  .ingredients_recetas .header_recetas .content_header .content {
+    font-size: 1.0625rem;
+  }
+}
+@media (min-width: 1100px) {
+  .ingredients_recetas .header_recetas .content_header .content {
+    font-size: 1.125rem;
+  }
+}
+@media (min-width: 1600px) {
+  .ingredients_recetas .header_recetas .content_header .content {
+    font-size: 1.1875rem;
+  }
+}
+.ingredients_recetas .instructions {
+  background-color: #FFFFFF;
+  padding: 30px;
+  border-radius: 0.9375rem;
+  margin-top: 10px;
+  width: 100%;
+}
+@media (min-width: 901px) {
+  .ingredients_recetas .instructions {
+    padding: 50px;
+    margin-top: 30px;
+  }
+}
+@media (min-width: 1100px) {
+  .ingredients_recetas .instructions {
+    display: flex;
+    flex-flow: row;
+    column-gap: 55px;
+  }
+}
+.ingredients_recetas .instructions hr {
+  border: none;
+  height: 1px;
+  background-color: #F6572E;
+  margin-bottom: 10px;
+}
+@media (min-width: 1100px) {
+  .ingredients_recetas .instructions hr {
+    width: 50%;
+    height: 2px;
+  }
+}
+.ingredients_recetas .instructions h2 {
+  margin-bottom: 15px;
+  font-family: chillow_regular;
+  color: #F6572E;
+  font-size: 1.75rem;
+}
+@media (min-width: 901px) {
+  .ingredients_recetas .instructions h2 {
+    font-size: 2.1875rem;
+  }
+}
+@media (min-width: 1100px) {
+  .ingredients_recetas .instructions h2 {
+    font-size: 2.5rem;
+  }
+}
+.ingredients_recetas .instructions .content {
+  font-family: tex_readventor;
+  color: #225D38;
+  font-size: 0.75rem;
+}
+@media (min-width: 550px) {
+  .ingredients_recetas .instructions .content {
+    font-size: 0.8125rem;
+  }
+}
+@media (min-width: 700px) {
+  .ingredients_recetas .instructions .content {
+    font-size: 0.875rem;
+  }
+}
+@media (min-width: 1100px) {
+  .ingredients_recetas .instructions .content {
+    font-size: 0.9375rem;
+  }
+}
+@media (min-width: 1600px) {
+  .ingredients_recetas .instructions .content {
+    font-size: 1rem;
+  }
+}
+
+.history_section {
+  margin-top: 20px;
+  background-color: #AEDB68;
+  padding: 30px 20px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+@media (min-width: 901px) {
+  .history_section {
+    margin-top: 50px;
+    padding-top: 50px;
+  }
+}
+@media (min-width: 1100px) {
+  .history_section {
+    margin-top: 60px;
+    padding-top: 60px;
+  }
+}
+.history_section h2 {
+  background-color: #F1F7E7;
+  width: fit-content;
+  padding: 10px;
+  border-radius: 0.625rem;
+  color: #225D38;
+  font-family: chillow_regular;
+  padding-top: 14px;
+  font-size: 1.75rem;
+}
+@media (min-width: 901px) {
+  .history_section h2 {
+    font-size: 2.8125rem;
+    padding-top: 17px;
+  }
+}
+@media (min-width: 1100px) {
+  .history_section h2 {
+    font-size: 3.125rem;
+    padding-top: 19px;
+  }
+}
+@media (min-width: 550px) {
+  .history_section .img {
+    max-width: 650px;
+    margin: auto;
+    pointer-events: none;
+    user-select: none;
+  }
+}
+@media (min-width: 901px) {
+  .history_section .img {
+    max-width: 1200px;
+  }
+}
+.history_section .img img {
+  width: 100%;
+  height: auto;
+  margin-top: 15px;
+}
+.history_section .img .mobile {
+  display: block;
+}
+@media (min-width: 700px) {
+  .history_section .img .mobile {
+    display: none;
+  }
+}
+.history_section .img .escritorio {
+  display: none;
+}
+@media (min-width: 700px) {
+  .history_section .img .escritorio {
+    display: block;
+  }
+}
+
+.information_section {
+  padding: 30px 20px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+@media (min-width: 901px) {
+  .information_section {
+    padding-top: 50px;
+  }
+}
+@media (min-width: 1100px) {
+  .information_section {
+    padding-top: 60px;
+  }
+}
+.information_section h2 {
+  background-color: #AEDB68;
+  width: fit-content;
+  padding: 10px;
+  border-radius: 0.625rem;
+  color: #225D38;
+  font-family: chillow_regular;
+  padding-top: 14px;
+  font-size: 1.75rem;
+}
+@media (min-width: 901px) {
+  .information_section h2 {
+    font-size: 2.8125rem;
+    padding-top: 17px;
+  }
+}
+@media (min-width: 1100px) {
+  .information_section h2 {
+    font-size: 3.125rem;
+    padding-top: 19px;
+  }
+}
+@media (min-width: 550px) {
+  .information_section .img {
+    max-width: 650px;
+    margin: auto;
+    pointer-events: none;
+    user-select: none;
+  }
+}
+@media (min-width: 901px) {
+  .information_section .img {
+    max-width: 1200px;
+  }
+}
+.information_section .img img {
+  width: 100%;
+  height: auto;
+  margin-top: 15px;
+}
+.information_section .img .mobile {
+  display: block;
+}
+@media (min-width: 700px) {
+  .information_section .img .mobile {
+    display: none;
+  }
+}
+.information_section .img .escritorio {
+  display: none;
+}
+@media (min-width: 700px) {
+  .information_section .img .escritorio {
+    display: block;
+  }
+}
+
+.bienestar_section {
+  background-color: #AEDB68;
+  padding: 30px 20px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  padding-bottom: 50px;
+}
+@media (min-width: 901px) {
+  .bienestar_section {
+    padding-top: 50px;
+  }
+}
+@media (min-width: 1100px) {
+  .bienestar_section {
+    padding-top: 60px;
+  }
+}
+.bienestar_section .bienestar {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+@media (min-width: 550px) {
+  .bienestar_section .bienestar {
+    max-width: 650px;
+    margin: auto;
+  }
+}
+@media (min-width: 901px) {
+  .bienestar_section .bienestar {
+    max-width: 1200px;
+  }
+}
+@media (min-width: 1100px) {
+  .bienestar_section .bienestar {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+  }
+}
+.bienestar_section .image {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (min-width: 550px) {
+  .bienestar_section .image {
+    max-width: 400px;
+  }
+}
+.bienestar_section .image .sombra {
+  position: absolute;
+  border-radius: 50%;
+  width: 40%;
+  height: 40%;
+  background-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0px 0px 74px 56px rgba(255, 255, 255, 0.643);
+}
+.bienestar_section .image img {
+  width: 100%;
+  height: auto;
+  z-index: 99;
+}
+.bienestar_section .bienestar_content {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+.bienestar_section .bienestar_content h2 {
+  background-color: #F1F7E7;
+  width: fit-content;
+  padding: 10px;
+  border-radius: 0.625rem;
+  color: #225D38;
+  font-family: chillow_regular;
+  padding-top: 14px;
+  font-size: 1.75rem;
+  text-align: center;
+  margin-bottom: 25px;
+}
+@media (min-width: 901px) {
+  .bienestar_section .bienestar_content h2 {
+    font-size: 2.8125rem;
+    padding-top: 17px;
+  }
+}
+@media (min-width: 1100px) {
+  .bienestar_section .bienestar_content h2 {
+    font-size: 3.125rem;
+    padding-top: 19px;
+  }
+}
+.bienestar_section .bienestar_content h3 {
+  color: #F1F7E7;
+  font-family: chillow_regular;
+  font-size: 1.75rem;
+  text-align: center;
+  margin-bottom: 15px;
+}
+@media (min-width: 901px) {
+  .bienestar_section .bienestar_content h3 {
+    font-size: 2.8125rem;
+    padding-top: 17px;
+  }
+}
+@media (min-width: 1100px) {
+  .bienestar_section .bienestar_content h3 {
+    font-size: 3.125rem;
+    padding-top: 19px;
+  }
+}
+.bienestar_section .bienestar_content .content {
+  font-family: tex_readventor;
+  color: #225D38;
+  font-size: 0.9375rem;
+  text-align: center;
+}
+@media (min-width: 550px) {
+  .bienestar_section .bienestar_content .content {
+    font-size: 1rem;
+  }
+}
+@media (min-width: 700px) {
+  .bienestar_section .bienestar_content .content {
+    font-size: 1.0625rem;
+  }
+}
+@media (min-width: 1100px) {
+  .bienestar_section .bienestar_content .content {
+    font-size: 1.125rem;
+  }
+}
+@media (min-width: 1600px) {
+  .bienestar_section .bienestar_content .content {
+    font-size: 1.1875rem;
+  }
+}
+
 body {
   background-color: #F1F7E7;
 }

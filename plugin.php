@@ -1,19 +1,16 @@
 <?php
 
 /*
-* Plugin Name:       Recetas Natuvia By BBDO
+* Plugin Name:       Recetas Natuvia By Garnier BBDO
 * Plugin URI:        https://natuvia.co.cr/
 * Description:       Administrador de recetas
 * Version:           1.0.0
-* Requires at least: 5.2
 * Author:            Alonso Artavia
 * Author URI:        https://garnierbbdo.com
 * License:           GPL v2 or later
 * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 * Text Domain:       Conocer más del plugin
 */
-
-
 
 /** Inializamos el plugin*/
 add_action('init', function(){

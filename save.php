@@ -25,6 +25,7 @@
     add_action('save_post', 'save_applications_all_recibes');
 
     function save_applications_all_recibes($post_id){
+        
         if (!isset($_POST['post_type']) || $_POST['post_type'] !== 'all_recetas') return $post_id;
 
         if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return $post_id;

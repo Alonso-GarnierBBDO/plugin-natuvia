@@ -13,7 +13,7 @@ var setItems = function () {
             getControls = e.querySelector('.controls');
             var firstChild = getContent.children[0];
             if (firstChild) {
-                var heightItems = firstChild.offsetHeight;
+                var heightItems = firstChild.offsetHeight + 80;
                 getContent.style.height = "".concat(heightItems, "px");
             }
             if (getContent && getControls) {

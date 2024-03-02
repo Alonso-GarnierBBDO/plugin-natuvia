@@ -23,7 +23,7 @@ const setItems  = () => {
 
             if(firstChild){
 
-                const heightItems = firstChild.offsetHeight;
+                const heightItems = firstChild.offsetHeight + 80;
 
                 getContent.style.height =  `${heightItems}px`
 

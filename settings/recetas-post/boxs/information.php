@@ -18,6 +18,7 @@
             }, explode(',', $image_information_mobile_item)));
 
 
+
             ?>
             
             <section class="first_section">
