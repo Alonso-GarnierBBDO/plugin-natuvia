@@ -61,7 +61,7 @@
 
         @include bp(tabletMD){
             font-size: rem(70px);
-            max-width: 1200px;
+            max-width: 1220px;
         }
 
         @include bp(laptop){
@@ -82,7 +82,7 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             grid-gap: 30px;
-            max-width: 1200px;
+            max-width: 1220px;
 
         }
 
@@ -127,7 +127,7 @@
 
             @include bp(tabletMD){
 
-                max-width: 1200px;
+                max-width: 1220px;
 
             }
 
@@ -223,7 +223,7 @@
             }
 
             @include bp(tabletMD){
-                max-width: 1200px;
+                max-width: 1220px;
             }
 
             .header {

@@ -1,0 +1,366 @@
+.comments{
+
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 10px;
+    margin-top: 30px;
+
+    @include bp(mobileBIG){
+        max-width: 650px;
+        margin: auto;
+        margin-top: 30px;
+    }
+
+    @include bp(tabletMD){
+        max-width: 1220px;
+    }
+
+
+    .content {
+
+        display: flex;
+        flex-flow: column;
+        row-gap: 10px;
+        width: 100%;
+        background-color: $color-boxs-white;
+        padding: 30px;
+        border-radius: rem(15px);
+
+        @include bp(tabletMD){
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 10px;
+            align-items: center;
+            
+        }
+
+        @include bp(laptop){
+            grid-template-columns: 0.8fr 1.2fr;
+            grid-gap: 30px;
+            align-items: center;
+            
+        }
+
+        .all_cucharitas{
+            @include bp(laptop){
+                display: grid;
+                grid-template-columns: 1.5fr 0.5fr;
+                grid-gap: 10px;
+                
+            }   
+        }
+
+        h2 {
+            text-align: center;
+            text-wrap: balance;
+            font-family: $font-regular;
+            font-size: rem(45px);
+            color: $color-content;
+            margin-bottom: 10px;
+
+            @include bp(tabletMD){
+                font-size: rem(55px);
+            }
+
+            @include bp(laptop){
+                font-size: rem(65px);
+            }
+
+        }
+
+        .full_name {
+
+            @include bp(tabletMD){
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 10px;
+            }
+
+        }
+
+        .comment-respond {
+
+            form {
+
+                width: 100%;
+
+                input,
+                textarea{
+                    width: 100%;
+                    font-family: $font-bold;
+                    padding: 15px;
+                    outline: none;
+                    background-color: $principal_color;
+                    color: $principal_text_color;
+                    border: 1px solid transparent;
+                    transition: .2s ease;
+                    border-radius: rem(10px);
+                    font-size: rem(15px);
+                    margin-bottom: 10px;
+                    resize: none;
+
+                    @include bp(mobileBIG){
+                        font-size: rem(16px);
+                    }
+            
+                    @include bp(tablet){
+                        font-size: rem(17px);
+                    }
+            
+                    @include bp(laptop){
+                        font-size: rem(18px);
+                    }
+            
+                    @include bp(escritorio){
+                        font-size: rem(19px);
+                    }
+
+
+                    &::placeholder{
+                        color: $principal_text_color;
+                        transition: .2s ease;
+                        font-size: rem(15px);
+
+                        @include bp(mobileBIG){
+                            font-size: rem(16px);
+                        }
+                
+                        @include bp(tablet){
+                            font-size: rem(17px);
+                        }
+                
+                        @include bp(laptop){
+                            font-size: rem(18px);
+                        }
+                
+                        @include bp(escritorio){
+                            font-size: rem(19px);
+                        }
+
+                    }
+
+
+                    &:focus {
+                        border: 1px solid $principal_text_color;
+                    }
+
+                }
+
+                .comment-form-review {
+
+                    background-color: $principal_color;
+                    border-radius: rem(10px);
+                    padding: 15px;
+                    margin-bottom: 10px;
+
+                    @include bp(tabletMD){
+                        display: grid;
+                        grid-template-columns: repeat(2, 1fr);
+                        grid-gap: 10px;
+                    }
+
+                    @include bp(laptop){
+                        margin-bottom: 0px;
+                    }
+
+                    .cucharas {
+
+                        display: flex;
+                        column-gap: 10px;
+                        margin-top: 10px;
+
+                        @include bp(laptop){
+                            justify-content: flex-end;
+                        }
+
+                        div{
+
+                            cursor: pointer;
+
+                        }
+
+                        svg {
+
+                            width: 25px;
+                            height: auto;
+
+                            path {
+
+                                fill: $color-cucharas;
+
+                            }
+
+                        }
+
+                    }
+
+                    label {
+
+                        font-size: rem(15px);
+                        margin-bottom: 10px;
+                        font-family: $font-bold;
+                        color: $principal_text_color;
+
+                        @include bp(mobileBIG){
+                            font-size: rem(16px);
+                        }
+                
+                        @include bp(tablet){
+                            font-size: rem(17px);
+                        }
+                
+                        @include bp(laptop){
+                            font-size: rem(18px);
+                        }
+                
+                        @include bp(escritorio){
+                            font-size: rem(19px);
+                        }
+
+                    }
+
+                    input {
+
+                        display: none;
+
+                    }
+
+                }
+
+                .form-submit {
+
+                    input[type="submit"]{
+                        background-color: $color-link-recetas;
+                        width: 100%;
+                        padding: 14px;
+                        border: none;
+                        border-radius: rem(10px);
+                        font-size: rem(15px);
+                        color: $color-boxs-white;
+                        text-transform: uppercase;
+                        font-family: $font-bold;
+                        border: 2px solid transparent;
+                        cursor: pointer;
+                        margin-top: 15px;
+    
+                        &:hover {
+    
+                            border: 2px solid $color-link-recetas;
+                            background-color: transparent;
+                            color: $color-link-recetas;
+    
+                        }
+    
+                        @include bp(mobileBIG){
+                            font-size: rem(16px);
+                            width: 100%;
+                            margin-top: 0px;
+                            margin-bottom: 0px;
+                            
+                        }
+                
+                        @include bp(tablet){
+                            font-size: rem(17px);
+                        }
+                
+                        @include bp(laptop){
+                            font-size: rem(18px);
+                        }
+                
+                        @include bp(escritorio){
+                            font-size: rem(19px);
+                        }
+    
+                    }
+
+                }
+
+                input:focus::placeholder,
+                textarea:focus::placeholder {
+                    color: $principal_color;
+                }
+
+            }
+
+            .column{
+
+                @include bp(mobileBIG){
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    grid-gap: 10px;
+                }
+
+                @include bp(laptop){
+                    grid-template-columns: 1fr;
+                    grid-gap: 0px;
+                }
+
+            }
+
+            .show_review {
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 50%;
+                max-width: 400px;
+                background-color: $principal_text_color;
+                color: $color-boxs-white;
+                padding: 10px 20px;
+                border-radius: rem(7px);
+                column-gap: 10px;
+                margin: auto;
+                font-family: $font-bold;
+                margin-bottom: 10px;
+                font-size: rem(15px);
+                resize: none;
+                pointer-events: none;
+                user-select: none;
+
+                @include bp(mobileBIG){
+                    margin: initial;
+                    max-width: 200px;
+                    width: 100%;
+                    max-width: 100%;
+                }
+
+                @include bp(mobileBIG){
+                    font-size: rem(16px);
+                }
+        
+                @include bp(tablet){
+                    font-size: rem(17px);
+                }
+        
+                @include bp(laptop){
+                    font-size: rem(18px);
+                }
+
+                div {
+
+                    cursor: pointer;
+
+                }
+
+                svg {
+
+                    width: 5px;
+                    height: auto;
+
+                    path {
+
+                        fill: $color-boxs-white;
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+}

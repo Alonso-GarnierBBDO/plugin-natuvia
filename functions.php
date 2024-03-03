@@ -1,5 +1,8 @@
 <?php
 
+/** Retornamos todos los items de comments */
+include plugin_dir_path(__FILE__) . 'settings/admin/comments.php';
+
 // Cargamos los estilos
 
 function recetas_style() {
@@ -29,19 +32,6 @@ wp_register_script('script', plugin_dir_url(__FILE__) . 'scripts/javascript/scri
 wp_enqueue_script('script');
 add_filter("script_loader_tag", "recetas_javascript_module", 10, 3);
 
-
-/** Registar una pagina */
-// function custom_recetas( $page_template )
-// {
-//     if ( is_page( 'recetas-portafolio' ) ) {
-//         $page_recetas_template = dirname( __FILE__ ) . '/templates/custom-recetas.php';
-//     }
-//     return $page_recetas_template;
-// }
-
-// add_filter( 'page_template', 'custom_recetas' );
-
-/** Registrar una archivo.php para el post type */
 
 function custom_archivo_file($template){
 
@@ -113,3 +103,68 @@ function contact_form_widget() {
 }
 add_action( 'widgets_init', 'contact_form_widget' );
 
+
+
+add_filter( 'manage_edit-comments_columns', 'rudr_add_comments_columns' );
+
+function rudr_add_comments_columns( $my_cols ){
+	
+	$misha_columns = array(
+		'm_comment_id' => 'ID',
+		'm_parent_id' => 'Parent ID'
+	);
+	$my_cols = array_slice( $my_cols, 0, 3, true ) + $misha_columns + array_slice( $my_cols, 3, NULL, true );
+
+	return $my_cols;
+}
+
+add_action( 'manage_comments_custom_column', 'rudr_add_comment_columns_content', 10, 2 );
+
+function rudr_add_comment_columns_content( $column, $comment_ID ) {
+	global $comment;
+	switch ( $column ) :
+		case 'm_comment_id' : {
+			echo $comment_ID; // or echo $comment->comment_ID;
+			break;
+		}
+		case 'm_parent_id' : {
+			// try to print_r( $comment ); to see more comment information
+			echo $comment->comment_parent; // this will be printed inside the column
+			break;
+		}
+	endswitch;
+}
+
+/** Agregamos los metaboxs en el adminitrador de los comentarios */
+
+function custom_comments_meta_box(){
+    add_meta_box('my-custom-comment', 'Otra información', 'custom_comment_meta_box_cb', 'comment', 'normal', 'high');
+}
+
+
+add_filter( 'add_meta_boxes_comment', 'custom_comments_meta_box');
+
+function custom_comment_meta_box_cb($comment) {
+    $last_name = get_comment_meta($comment->comment_ID, 'last_name', true);
+    $review = get_comment_meta($comment->comment_ID, 'review', true);
+    echo commentsItems($last_name, $review);
+}
+
+/** Guardamos los items del nuevo comentarios */
+
+function save_comment($comment_id){
+
+    $name = $_POST['author'];
+    $last_name = $_POST['last_name'];
+    $email = $_POST['email'];
+    $comment = $_POST['comment'];
+    $review = $_POST['review'];
+
+
+    if(isset($name) && isset($last_name) && isset($email) && isset($comment) && isset($review)){
+        add_comment_meta( $comment_id, 'last_name', $last_name);
+        add_comment_meta( $comment_id, 'review', $review);
+    } 
+}
+
+add_action('comment_post', 'save_comment');

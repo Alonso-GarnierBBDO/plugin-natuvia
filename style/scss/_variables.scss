@@ -21,6 +21,7 @@ $color-link-recetas: #F6572E;
 $color-background: #AEDB68;
 $color-contact: #E0F0C7;
 $color-content: #225D38;
+$color-cucharas: #c8c8c8;
 
 // Fonts var
 // Fonsts vars
@@ -34,7 +35,7 @@ $font-bold: tex_readventor;
     }
 
     @else if $point == laptopBIG {
-        @media (min-width: 1300px) { @content; }
+        @media (min-width: 1220px) { @content; }
     }
 
     @else if $point == laptop {
