@@ -169,3 +169,5 @@ function save_comment($comment_id){
 }
 
 add_action('comment_post', 'save_comment');
+
+
