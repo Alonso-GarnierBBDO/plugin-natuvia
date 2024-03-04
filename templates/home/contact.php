@@ -4,7 +4,7 @@
 ?>
 
 <section class="contact-home">
-    <h2><?= $title_contact ?></h2>
+    <h2><div><?= $title_contact ?></div></h2>
     <section class="all">
         <section class="information">
             <section class="video">

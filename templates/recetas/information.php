@@ -1,6 +1,6 @@
 <section class="information_section">
 
-    <h2><?=  $title_information ?></h2>
+    <h2><div><?=  $title_information ?></div></h2>
 
     <section class="img">
         <section class="mobile">

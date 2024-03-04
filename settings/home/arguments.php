@@ -14,7 +14,7 @@
         'has_archive' => true,
         'hierarchical' => false,
         'menu_position' => null,
-        'supports' =>  array('title', 'editor'),
+        'supports' =>  array('title', 'editor', 'excerpt'),
         'menu_icon' => 'dashicons-admin-home',
         'show_in_rest' => false,
         'rest_base' => 'home-recipes-page',

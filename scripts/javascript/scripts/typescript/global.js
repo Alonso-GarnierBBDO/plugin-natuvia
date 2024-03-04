@@ -1,5 +1,10 @@
 import LeavesAnimation from './helpers/leaves.js';
 import { slider, setItems, initSlider } from './helpers/slider.js';
+import review from './helpers/reviews.js';
+import forms from './helpers/form.js';
+import animationLetter from './helpers/javascript/letter.js';
+import scrollAnimation from './helpers/scroll.js';
+import scrollLetterAnimation from './helpers/javascript/scrollLetterAnimation.js';
 // Ejecutamos todos los scrips
 window.addEventListener('DOMContentLoaded', function () {
     // Animacion de las hojas
@@ -10,35 +15,18 @@ window.addEventListener('DOMContentLoaded', function () {
     slider();
     // Inicializamos los controles del slider
     initSlider();
+    // Inicializamos las review
+    review();
+    // Establecemos los valores
+    forms();
+    // Agregamos la animacion
+    animationLetter();
+    // Animacion de entrada
+    scrollAnimation();
+    // Animatoin de scroll
+    scrollLetterAnimation();
 });
-/**
- * Esta funcion evita que se ejecuten muchos enventos seguidos, para no sobrecargar el navedador
- * @param fn
- * @param wait
- * @returns
- */
-// const throttel = ( fn: Function, wait: number = 300 ) => {
-//     let inThrottel : Boolean, lastFn: ReturnType<typeof setTimeout>, lastTime: number;
-//     return function (this: any){
-//         const context = this, arg = arguments;
-//         if(!inThrottel){
-//             fn.apply(context, arg);
-//             lastTime = Date.now();
-//             inThrottel = true;
-//         }else{
-//             clearTimeout(lastFn);
-//             lastFn = setTimeout(()=>{
-//                 if(Date.now() - lastTime >= wait){
-//                     fn.apply(context, arg);
-//                     lastTime = Date.now();
-//                 }
-//             }, Math.max(wait - (Date.now() - lastTime), 0));
-//         }
-//     }
-// }
-// window.addEventListener('resize', throttel(function (evt) {
-//     // Reajustamos el slider
-//     slider();
-//     // Inicializamos los controles del slider
-//     // initSlider();
-// }, 450));
+window.addEventListener('scroll', function () {
+    scrollAnimation();
+    scrollLetterAnimation();
+});

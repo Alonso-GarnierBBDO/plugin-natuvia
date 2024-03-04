@@ -13,6 +13,13 @@
         padding-top: 60px;
     }
 
+    h2.show{
+        div{
+            opacity: 1;
+            transform: rotate3d(0, 0, 0, 0deg) translateY(-0%);
+        }
+    }
+
     h2 {
 
         background-color: $color-background;
@@ -23,6 +30,16 @@
         font-family: $font-regular;
         padding-top: 14px;
         font-size: rem(28px);
+
+        div{
+            transition: 1s ease;
+            opacity: 0;
+            transform: rotate3d(-1, 0, 0, 85deg) translateY(-100%);
+        }
+
+        .letter{
+            display: inline-block;
+        }
 
 
         @include bp(tabletMD){
@@ -56,6 +73,14 @@
             width: 100%;
             height: auto;
             margin-top: 15px;
+            transform: translateY(15%) scale(0.7);
+            opacity: 0;
+            transition: .7s ease;
+        }
+
+        img.show{
+            transform: translateY(0%) scale(1);
+            opacity: 1;
         }
 
         .mobile {

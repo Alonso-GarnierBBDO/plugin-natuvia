@@ -53,6 +53,14 @@
             }   
         }
 
+        h2.show{
+            div{
+                opacity: 1;
+                transform: rotate3d(0, 0, 0, 0deg) translateY(-0%);
+            }
+        }
+    
+
         h2 {
             text-align: center;
             text-wrap: balance;
@@ -61,12 +69,22 @@
             color: $color-content;
             margin-bottom: 10px;
 
+            .letter{
+                display: inline-block;
+            }
+
             @include bp(tabletMD){
                 font-size: rem(55px);
             }
 
             @include bp(laptop){
                 font-size: rem(65px);
+            }
+
+            div{
+                transition: 1s ease;
+                opacity: 0;
+                transform: rotate3d(-1, 0, 0, 85deg) translateY(-100%);
             }
 
         }
@@ -111,11 +129,11 @@
                     }
             
                     @include bp(laptop){
-                        font-size: rem(18px);
+                        font-size: rem(17px);
                     }
             
                     @include bp(escritorio){
-                        font-size: rem(19px);
+                        font-size: rem(17px);
                     }
 
 
@@ -133,11 +151,11 @@
                         }
                 
                         @include bp(laptop){
-                            font-size: rem(18px);
+                            font-size: rem(17px);
                         }
                 
                         @include bp(escritorio){
-                            font-size: rem(19px);
+                            font-size: rem(17px);
                         }
 
                     }
@@ -169,7 +187,6 @@
                     .cucharas {
 
                         display: flex;
-                        column-gap: 10px;
                         margin-top: 10px;
 
                         @include bp(laptop){
@@ -179,23 +196,55 @@
                         div{
 
                             cursor: pointer;
+                            padding-left: 10px;
 
-                        }
+                            svg {
 
-                        svg {
-
-                            width: 25px;
-                            height: auto;
-
-                            path {
-
-                                fill: $color-cucharas;
-
+                                width: 25px;
+                                height: auto;
+    
+                                path {
+    
+                                    fill: $color-cucharas;
+                                    transition: .2s ease;
+    
+                                }
+    
                             }
 
                         }
 
+                        div.hover{
+
+                            svg {
+    
+                                path {
+    
+                                    fill: $principal_text_color;
+    
+                                }
+    
+                            }
+
+                        }
+
+                        div.active{
+
+                            svg {
+    
+                                path {
+    
+                                    fill: $principal_text_color;
+    
+                                }
+    
+                            }
+
+                        }
+
+
                     }
+
 
                     label {
 
@@ -213,11 +262,11 @@
                         }
                 
                         @include bp(laptop){
-                            font-size: rem(18px);
+                            font-size: rem(17px);
                         }
                 
                         @include bp(escritorio){
-                            font-size: rem(19px);
+                            font-size: rem(17px);
                         }
 
                     }
@@ -245,6 +294,11 @@
                         border: 2px solid transparent;
                         cursor: pointer;
                         margin-top: 15px;
+
+                        &:disabled{
+                            opacity: 0.6;
+                            pointer-events: none;
+                        }
     
                         &:hover {
     
@@ -267,11 +321,11 @@
                         }
                 
                         @include bp(laptop){
-                            font-size: rem(18px);
+                            font-size: rem(17px);
                         }
                 
                         @include bp(escritorio){
-                            font-size: rem(19px);
+                            font-size: rem(17px);
                         }
     
                     }
@@ -336,7 +390,7 @@
                 }
         
                 @include bp(laptop){
-                    font-size: rem(18px);
+                    font-size: rem(17px);
                 }
 
                 div {
@@ -363,4 +417,204 @@
         }
 
     }
+}
+
+.successfull_message.remove{
+
+    opacity: 0;
+
+    .content {
+        transform: translateY(-30%);
+    }
+
+}
+
+.successfull_message.show{
+    display: flex;
+}
+
+.successfull_message {
+
+    position: fixed;
+    top: 0px;
+    transition: .4s ease;
+    left: 0px;
+    width: 100dvw;
+    height: 100dvh;
+    z-index: 99;
+    background-color: $color-boxs-white-transparent;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    overflow: 1;
+    display: none;
+    
+
+    @include keyframes(showMessage){
+    
+        0%{
+            opacity: 0;
+        }
+        
+        100%{
+            opacity: 1;
+        }
+
+    }
+
+    @include animate(showMessage, .4s, ease, 1);
+
+    .content {
+
+        background-color: $principal_text_color;
+        width: 90dvw;
+        max-height: 50dvh;
+        border-radius: rem(20px);
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        row-gap: 20px;
+        align-items: center;
+        padding: 35px 20px;
+        position: relative;
+        max-width: 550px;
+        transition: .4s ease;
+        transform: translateY(0%);
+
+        @include keyframes(showContent){
+    
+            0%{
+                transform: translateY(30%);
+            }
+            
+            100%{
+                transform: translateY(0%);
+            }
+    
+        }
+    
+        @include animate(showContent, .4s, ease, 1);
+
+        button{
+            cursor: pointer;
+        }
+
+        .close {
+
+            position: absolute;
+            top: 35px;
+            right: 20px;
+            border: none;
+            background-color: transparent;
+
+            svg {
+
+                width: 25px;
+                height: auto;
+                color: $color-boxs-white;
+
+            }
+
+        }
+
+        h3{
+
+            font-size: rem(65px);
+            font-family: $font-regular;
+            text-transform: uppercase;
+            text-align: center;
+            color: $color-boxs-white;
+            margin-top: 0px;
+            
+    
+            @include bp(mobileBIG){
+                font-size: rem(70px);
+            }
+    
+            @include bp(tablet){
+                font-size: rem(75px);
+            }
+    
+            @include bp(tabletMD){
+                font-size: rem(80px);
+            }
+    
+            @include bp(laptop){
+                font-size: rem(90px);
+            }
+    
+            @include bp(escritorio){
+                font-size: rem(95px);
+            }
+    
+        }
+
+        .message {
+
+            p {
+                font-family: $font-bold;
+                color: $color-boxs-white;
+                font-size: rem(15px);
+
+                @include bp(mobileBIG){
+                    font-size: rem(16px);
+                }
+
+                @include bp(tablet){
+                    font-size: rem(17px);
+                }
+
+                @include bp(laptop){
+                    font-size: rem(17px);
+                }
+
+                @include bp(escritorio){
+                    font-size: rem(19px);
+                }
+            }
+
+        }
+
+        .button_close {
+
+            background-color: $color-content;
+            color: $color-boxs-white;
+            width: 100%;
+            padding: 10px;
+            border-radius: rem(7px);
+            border: none;
+            font-size: rem(17px);
+            font-family: $font-bold;
+            border: 2px solid transparent;
+            transition: .2s ease;
+
+            &:hover {
+
+                border: 2px solid $color-content;
+                background-color: transparent;
+                color: $color-content;
+
+            }
+
+            @include bp(mobileBIG){
+                width: fit-content;
+                padding: 10px 20px;
+            }
+
+        }
+
+        .box_close {
+
+            width: 100%;
+            display: flex;
+            justify-content: center;
+
+            @include bp(mobileBIG){
+                justify-content: flex-end;
+            }
+
+        }
+
+    }
+
 }

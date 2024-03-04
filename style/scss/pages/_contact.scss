@@ -11,12 +11,12 @@
 
     @include bp(tabletMD){
         margin-top: 0px;
-        padding-top: 80px;
+        padding-top: 60px;
         padding-bottom: 80px;
     }
 
     @include bp(laptop){
-        padding-top: 90px;
+        padding-top: 70px;
         padding-bottom: 90px;
     }
 
@@ -31,6 +31,13 @@
 
     }
 
+    h2.show{
+        div{
+            opacity: 1;
+            transform: rotate3d(0, 0, 0, 0deg) translateY(-0%);
+        }
+    }
+
 
     h2 {
 
@@ -42,12 +49,14 @@
         margin: 0px auto auto auto;
         text-wrap: balance;
         margin-bottom: 30px;
-        view-timeline-name: --image;
-        view-timeline-axis: block;
-        animation-timeline: --image;
-        animation-name: entryElement;
-        animation-range: entry 25% cover 50%;
-        animation-fill-mode: both;
+        padding-top: 5px;
+
+        div{
+            transition: 1s ease;
+            opacity: 0;
+            transform: rotate3d(-1, 0, 0, 85deg) translateY(-100%);
+        }
+
 
         @include bp(mobileBIG){
             font-size: rem(60px);
@@ -62,6 +71,7 @@
         @include bp(tabletMD){
             font-size: rem(70px);
             max-width: 1220px;
+            padding-top: 20px;
         }
 
         @include bp(laptop){
@@ -70,6 +80,12 @@
 
         @include bp(escritorio){
             font-size: rem(85px);
+        }
+
+
+        .letter {
+            display: inline-block;
+            transform: translateY(205%);
         }
 
 
@@ -98,18 +114,27 @@
 
         }
 
+        .information.show{
+
+            .video{
+                transform: translateX(0%) scale(1);
+                opacity: 1;
+
+                @include bp(tabletMD){
+                    transform: translateY(0%) scale(1);
+                }
+
+            }
+
+        }
+
+
         .information {
 
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             grid-gap: 10px;
             width: 100%;
-            view-timeline-name: --image;
-            view-timeline-axis: block;
-            animation-timeline: --image;
-            animation-name: entryElement;
-            animation-range: entry 25% cover 50%;
-            animation-fill-mode: both;
             margin: auto;
             align-content: center;
             
@@ -135,13 +160,17 @@
 
                 width: 100%;
                 border-radius: 18px;
-                overflow: hidden;
                 max-height: 500px;
                 display: flex;
                 align-items: center;
+                transform: translateX(-100%) scale(0.7);
+                transition: 0.8s ease;
+                opacity: 0;
+                overflow: hidden;
 
                 @include bp(tabletMD){
                     max-height: 50dvh;
+                    transform: translateY(100%) scale(0.7);
                 }
 
                 .wp-video,
@@ -154,6 +183,10 @@
 
                         display: flex;
                         align-items: center;
+                        
+                        mediaelementwrapper {
+                            width: 100%;
+                        }
 
                     }
 
@@ -182,11 +215,11 @@
                 }
         
                 @include bp(laptop){
-                    font-size: rem(18px);
+                    font-size: rem(17px);
                 }
         
                 @include bp(escritorio){
-                    font-size: rem(19px);
+                    font-size: rem(17px);
                 }
 
                 strong {
@@ -204,13 +237,8 @@
             background-color: $color-contact;
             margin: 30px auto auto auto;
             border-radius: rem(20px);
-            padding: 15px;
-            view-timeline-name: --image;
-            view-timeline-axis: block;
-            animation-timeline: --image;
-            animation-name: entryElement;
-            animation-range: entry 25% cover 35%;
-            animation-fill-mode: both;
+            padding: 30px;
+            transition: 0.8s ease;
 
             @include bp(mobileBIG){
 
@@ -302,11 +330,11 @@
                         }
                 
                         @include bp(laptop){
-                            font-size: rem(18px);
+                            font-size: rem(17px);
                         }
                 
                         @include bp(escritorio){
-                            font-size: rem(19px);
+                            font-size: rem(17px);
                         }
 
                         &::placeholder{
@@ -323,11 +351,11 @@
                             }
                     
                             @include bp(laptop){
-                                font-size: rem(18px);
+                                font-size: rem(17px);
                             }
                     
                             @include bp(escritorio){
-                                font-size: rem(19px);
+                                font-size: rem(17px);
                             }
 
                         }
@@ -382,11 +410,11 @@
                     }
             
                     @include bp(laptop){
-                        font-size: rem(18px);
+                        font-size: rem(17px);
                     }
             
                     @include bp(escritorio){
-                        font-size: rem(19px);
+                        font-size: rem(17px);
                     }
 
                 }
@@ -422,11 +450,11 @@
                     }
             
                     @include bp(laptop){
-                        font-size: rem(18px);
+                        font-size: rem(17px);
                     }
             
                     @include bp(escritorio){
-                        font-size: rem(19px);
+                        font-size: rem(17px);
                     }
 
                 }
@@ -452,11 +480,11 @@
                     }
             
                     @include bp(laptop){
-                        font-size: rem(18px);
+                        font-size: rem(17px);
                     }
             
                     @include bp(escritorio){
-                        font-size: rem(19px);
+                        font-size: rem(17px);
                     }
                 }
 

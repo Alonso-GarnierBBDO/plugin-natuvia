@@ -1,21 +1,68 @@
+
+<section class="successfull_message">
+    <section class="content">
+        <button class="close">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+              <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+            </svg>
+        </button>
+        <h3>Gracias</h3>
+        <div class="message">
+            <p>Su comentario fue enviado con éxito. ¡Gracias por ser un Natucocinero!</p>
+        </div>
+        <div class="box_close">
+            <button class="button_close">
+                Cerrar
+            </button>
+        </div>
+    </section>
+</section>
+
+<?php
+
+    $args = array(
+        'post_id' => get_the_ID(),
+    );
+    $comments = get_comments($args);
+    $number = 0;
+    $users = 0;
+    $total = 0;
+
+    foreach ($comments as $comment) {
+
+        $comment_id = $comment->comment_ID;
+        $reviewArray = get_comment_meta($comment_id, 'review');
+        $reviewNumber = $reviewArray[0];
+
+        $users += 1;
+        $number += $reviewNumber;
+
+    }
+
+    if($users >= 1){
+        $total = $number / $users;
+    }
+
+?>
+
 <section class="comments">
     <section class="content">
-        <h2>¡Dejá tu review! <br> Natucocinero</h2>
+        <h2><div>¡Dejá tu review! <br> Natucocinero</div></h2>
         <div id="respond" class="comment-respond">
             <form action="<?= site_url('/wp-comments-post.php') ?>" method="post" id="commentform" class="comment-form">
                 <section class="full_name">
                     <p class="comment-form-author">
-                        <input type="text" id="author" name="author" value="" size="30" maxlength="245" placeholder="Nombre"/>
+                        <input type="text" id="author" name="author" value="" size="30" maxlength="245" placeholder="Nombre" require/>
                     </p>
                     <p class="comment-form-last-name">
-                        <input type="text" id="last_name" name="last_name" value="" size="30" maxlength="245" placeholder="Apellido"/>
+                        <input type="text" id="last_name" name="last_name" value="" size="30" maxlength="245" placeholder="Apellido" require/>
                     </p>
                 </section>
                 <p class="comment-form-email">
-                    <input type="text" id="email" name="email" value="" size="30" maxlength="245" placeholder="Correo electrónico"/>
+                    <input type="text" id="email" name="email" value="" size="30" maxlength="245" placeholder="Correo electrónico" require/>
                 </p>
                 <p class="comment-form-comment">
-                    <textarea id="comment" name="comment" cols="45" rows="8" required="required" placeholder="Contanos ¿Cómo te fue con esta receta?"></textarea>
+                    <textarea id="comment" name="comment" cols="45" rows="8" required="required" placeholder="Contanos ¿Cómo te fue con esta receta?" require></textarea>
                 </p>
                 <section class="all_cucharitas">
                     <section class="comment-form-review">
@@ -108,7 +155,13 @@
                                 </defs>
                             </svg>
                             <section class="number">
-                                4,8
+                                <?php
+                                    if($total >= 1){
+                                        echo number_format($total, 1);
+                                    }else{
+                                        echo '4.5';
+                                    }
+                                ?>
                             </section>
                         </section>
                     </section>

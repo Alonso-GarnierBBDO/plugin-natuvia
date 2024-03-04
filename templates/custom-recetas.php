@@ -18,6 +18,11 @@
     $title_contact; // Almacenamos el contenido del title
     $video;
     $text_content;
+    $excerpt;
+
+    $baseURL = plugin_dir_url(__DIR__);
+    $resetPath = str_replace('templates/', '', $baseURL);
+    $og_image =  $resetPath . 'assets/img/natuvia-logo.png';
 
     if ($home_recetas->have_posts()) {
         while ($home_recetas->have_posts()) {
@@ -27,8 +32,10 @@
             $title_contact = get_post_meta(get_the_ID(), 'title', true);
             $video = wp_get_attachment_url(get_post_meta(get_the_ID(), 'video', true));
             $text_content = get_post_meta(get_the_ID(), 'content-formulario', true);
+            $excerpt = get_the_excerpt();
         }
     }
+
 
     /** Header */
     include plugin_dir_path(__DIR__) . 'templates/components/header.php'; 

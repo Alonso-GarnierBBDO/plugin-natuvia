@@ -44,6 +44,26 @@
                 margin-top: initial;
             }
 
+                .item.show{
+
+                    transform: translateY(0%);
+                    opacity: 1;
+
+                    .image {
+                        transform: scale(1);
+                    }
+
+                    .information {
+
+                        h3{
+                            transform: translateY(0%);
+                        }
+
+                    }
+
+
+                }
+
                 .item{
 
                     width: calc(50% - 5px);
@@ -57,17 +77,19 @@
                     border-radius: rem(20px);
                     padding: 95px 15px 15px 15px ;
                     text-decoration: none;
-                    transition: .2s ease;
-                    transform: scale(1);
+                    transition: .7s ease;
+                    transform: translateY(20%);
                     box-shadow: 0 .125rem .25rem transparent;
                     margin-top: 45px;
+                    opacity: 0;
+                    /*
                     view-timeline-name: --image;
                     view-timeline-axis: block;
                     animation-timeline: --image;
                     animation-name: showItem;
                     animation-range: entry 25% cover 50%;
                     animation-fill-mode: both;
-
+                    
                     @include bp(tablet){
                         width: calc(33% - 6.66px);
                     }
@@ -81,7 +103,7 @@
                         to {
                             opacity: 1;
                         }
-                    }
+                    }*/
 
 
                     &:nth-of-type(1),
@@ -91,8 +113,7 @@
 
                     @include bp(tablet){
                         &:nth-of-type(1),
-                        &:nth-of-type(2),
-                        &:nth-of-type(3){
+                        &:nth-of-type(2){
                             margin-top: 25px;
                         }
                     }
@@ -111,6 +132,8 @@
                         display: flex;
                         justify-content: center;
                         pointer-events: none;
+                        transition: .7s ease;
+                        transform: scale(0.8);
 
                         img{
                             width: 100%;
@@ -130,6 +153,8 @@
                             color: $principal_text_color;
                             font-family: $font-bold;
                             font-size: rem(20px);
+                            transition: .9s ease;
+                            transform: translateY(15%);
 
                         }
 
@@ -217,10 +242,11 @@
                     border-radius: rem(20px);
                     padding: 15px ;
                     text-decoration: none;
-                    transition: .2s ease;
-                    transform: scale(1);
+                    transition: .4s ease;
+                    transform: translateX(0%) translateY(15%) scale(1);
                     box-shadow: 0 .125rem .25rem transparent;
                     padding-top: 180px;
+            
 
                     &:hover{
 
@@ -307,7 +333,8 @@
             }
 
             .items.right{
-                transform: translateX(150%);
+
+                transform: translateX(150%) scale(0.5);
 
                 .image{
                     transform: translateY(10%) scale(0.6);
@@ -316,10 +343,64 @@
             }
 
             .items.left{
-                transform: translateX(-150%);
+                transform: translateX(-150%) scale(0.5);
                 .image{
                     transform: translateY(10%) scale(0.6);
                 }
+            }
+
+            .items.show{
+
+                .item {
+
+                    transform: translateX(0%) translateY(0%) scale(1);
+                    opacity: 1;
+
+                    &:hover{
+
+                        transform: translateX(0%) translateY(0%) scale(1.05);
+
+                    }
+
+                    @include keyframes(showSlider){
+    
+                        0%{
+                            transform: translateX(0%) translateY(25%) scale(1);
+                            opacity: 0;
+                        }
+                        
+                        100%{
+                            transform: translateX(0%) translateY(0%) scale(1);
+                            opacity: 1;
+                        }
+                
+                    }
+                
+                    @include animate(showSlider, .9s, ease, 1);
+
+                    .image {
+
+                        transform: scale(1);
+
+                        @include keyframes(animatonImage){
+    
+                            0%{
+                                transform: scale(0.6);
+                            }
+                            
+                            100%{
+                                transform: scale(1);
+                            }
+                    
+                        }
+                    
+                        @include animate(animatonImage, .9s, ease, 1);
+
+
+                    }
+
+                }
+
             }
 
         }

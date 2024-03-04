@@ -37,7 +37,7 @@ var slider = function () {
                 var convertHTML = encapsulateElement.map(function (element) { return element.outerHTML; });
                 var htmlString = '';
                 // // Agregamos la nueva clase
-                convertHTML.unshift("<section class=\"items ".concat(!(newHTMLElementContent === null || newHTMLElementContent === void 0 ? void 0 : newHTMLElementContent.length) ? 'active' : 'right', "\">"));
+                convertHTML.unshift("<section class=\"items show ".concat(!(newHTMLElementContent === null || newHTMLElementContent === void 0 ? void 0 : newHTMLElementContent.length) ? 'active' : 'right', "\">"));
                 convertHTML.push('</section>');
                 convertHTML.forEach(function (e) {
                     htmlString += e;

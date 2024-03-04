@@ -4,7 +4,7 @@
             <?= $thumbnail ?>
         </section>
         <section class="content_header">
-            <h1 title="<?= $title ?>"><?= $title ?></h1>
+            <h1 title="<?= $title ?>"><div><?= $title ?></div></h1>
             <span class="porciones" title="<?= $porciones ?>"><?= $porciones ?></span>
             <hr>
             <h2>Ingredientes:</h2>
@@ -13,13 +13,15 @@
             </section>
         </section>
     </section>
-    <section class="instructions">
-        <section class="instructiont_title">
-            <h2>INSTRUCCI0NES:</h2>
-            <hr>
-        </section>
-        <section class="content">
-            <?= $instrucciones ?>
+    <section class="content_instructions">
+        <section class="instructions">
+            <section class="instructiont_title">
+                <h2>INSTRUCCI0NES:</h2>
+                <hr>
+            </section>
+            <section class="content">
+                <?= $instrucciones ?>
+            </section>
         </section>
     </section>
 </section>

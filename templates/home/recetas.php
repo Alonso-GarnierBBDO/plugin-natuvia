@@ -24,7 +24,7 @@
 
 <section class="recetas-header">
 
-    <h1><?= $title ?></h1>
+    <h1><div><?= $title ?></div></h1>
     <section class="content">
         <?= $content ?>
     </section>

@@ -61,7 +61,7 @@ const slider = () => {
                 let htmlString : string = '';
 
                 // // Agregamos la nueva clase
-                convertHTML.unshift(`<section class="items ${!newHTMLElementContent?.length ? 'active' : 'right'}">`);
+                convertHTML.unshift(`<section class="items show ${!newHTMLElementContent?.length ? 'active' : 'right'}">`);
                 convertHTML.push('</section>');
 
                 convertHTML.forEach( e => {

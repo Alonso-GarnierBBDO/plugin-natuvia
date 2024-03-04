@@ -6,8 +6,8 @@
             <?= $images_bienestar ?>
         </section>
         <section class="bienestar_content">
-            <h2><?=  $title_bienestar ?></h2>
-            <h3><?= $sub_title_bienestar ?></h3>
+            <h2><div><?=  $title_bienestar ?></div></h2>
+            <h3><div><?= $sub_title_bienestar ?></div></h3>
             <section class="content">
                 <?= $content_bienestar ?>
             </section>

@@ -1,6 +1,6 @@
 .footer_recetas {
 
-    padding: 40px 10px;
+    padding: 30px 10px;
 
     @include bp(mobileBIG){
         max-width: 650px;
@@ -38,7 +38,11 @@
 
             img  {
 
-                max-width: 40px;
+                max-width: 30px;
+
+                @include bp(laptop){
+                    max-width: 35px;
+                }
     
             }
         }
@@ -61,9 +65,18 @@
             flex-flow: row;
         }
 
+        @include bp(laptop){
+            column-gap: 30px;
+        }
+
         img {
 
-            max-width: 200px;
+            max-width: 150px;
+            margin-top: 9px;
+
+            @include bp(tabletMD){
+                margin-top: 0px;
+            }
 
         }
 
@@ -83,11 +96,11 @@
             }
     
             @include bp(laptop){
-                font-size: rem(18px);
+                font-size: rem(17px);
             }
     
             @include bp(escritorio){
-                font-size: rem(19px);
+                font-size: rem(17px);
             }
 
         }

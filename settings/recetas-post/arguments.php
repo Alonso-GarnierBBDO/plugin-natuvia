@@ -13,7 +13,7 @@
         'has_archive' => true,
         'hierarchical' => false,
         'menu_position' => null,
-        'supports' =>  array('title', 'thumbnail', 'comments'),
+        'supports' =>  array('title', 'thumbnail', 'comments', 'excerpt'),
         'menu_icon' => 'dashicons-post-status',
         'show_in_rest' => false,
         'rest_base' => 'home-recipes-page',

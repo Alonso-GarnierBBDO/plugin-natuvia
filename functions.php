@@ -29,6 +29,7 @@ function recetas_javascript_module($tag, $handle, $src){
 }
 
 wp_register_script('script', plugin_dir_url(__FILE__) . 'scripts/javascript/scripts/typescript/global.js', '1.0');
+wp_enqueue_script('anime.js', 'https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js', '1.0.0', true); 
 wp_enqueue_script('script');
 add_filter("script_loader_tag", "recetas_javascript_module", 10, 3);
 

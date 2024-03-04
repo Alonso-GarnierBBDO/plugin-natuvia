@@ -1,6 +1,6 @@
 <section class="history_section">
 
-    <h2><?=  $title_history ?></h2>
+    <h2><div><?=  $title_history ?></div></h2>
 
     <section class="img">
         <section class="mobile">
