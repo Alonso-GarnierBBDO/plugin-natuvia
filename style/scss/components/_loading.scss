@@ -1,0 +1,105 @@
+
+.loading.capa_remove{
+
+    .capas{
+
+        .load {
+            background-color: $color-content;
+        }
+
+    }
+
+}
+
+
+.loading.remove{
+
+    opacity: 0;
+
+    h4 {
+        transform: translateY(-30%);
+        opacity: 0;
+    }
+
+}
+
+.loading{
+
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background-color: $color-content;
+    width: 100dvw;
+    height: 100dvh;
+    z-index: 99999;
+    padding: 30px;
+    display: flex;
+    align-items: flex-end;
+    transition: .7s ease;
+    opacity: 1;
+
+    h4{
+
+        font-size: rem(35px);
+        font-family: $font-regular;
+        text-transform: lowercase;
+        color: $color-boxs-white;
+        transform: translateY(0%);
+        transition: .5s ease;
+        opacity: 1;
+
+    }
+
+    .capas{
+
+        position: fixed;
+        top: 0%;
+        left: 0%;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .load {
+
+            position: fixed;
+            width: 200dvh;
+            height: 200dvh;
+            background-color: $principal_text_color;
+            border-radius: 50%;
+            opacity: 0;
+            transition: .5s ease;
+    
+            @include keyframes(loadingAnimation){
+                
+                0%{
+                    width: 0dvh;
+                    height: 0dvh;
+                    opacity: 0;
+                }
+                25%{
+                    width: 0dvh;
+                    height: 0dvh;
+                    opacity: 1;
+                }
+                75%{
+                    opacity: 0;
+                }
+                100%{
+                    width: 200dvh;
+                    height: 200dvh;
+                    opacity: 0;
+                }
+    
+            }
+    
+            @include animate(loadingAnimation, 2s, ease, infinite);
+    
+    
+        }
+
+    }
+
+}

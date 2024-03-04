@@ -57,6 +57,7 @@
 
                         h3{
                             transform: translateY(0%);
+                            text-transform: uppercase;
                         }
 
                     }
@@ -155,6 +156,7 @@
                             font-size: rem(20px);
                             transition: .9s ease;
                             transform: translateY(15%);
+                            text-transform: uppercase;
 
                         }
 
@@ -299,12 +301,16 @@
 
                     .information{
 
+                        width: 100%;
+
                         h3 {
 
                             text-align: center;
                             color: $principal_text_color;
                             font-family: $font-bold;
-                            font-size: rem(20px);
+                            font-size: rem(23px);
+                            text-wrap: balance;
+                            text-transform: uppercase;
 
                         }
 

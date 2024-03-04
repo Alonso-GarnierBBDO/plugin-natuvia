@@ -13,6 +13,7 @@ function recetas_style() {
 
     if (isset($pageName) && ($pageName == 'recetas_home_page' || $pageName == 'all_recetas')) {
         wp_enqueue_style('plugin-recetas-style', plugin_dir_url(__FILE__) . 'style/css/global.css');
+        wp_enqueue_script('script', plugin_dir_url(__FILE__) . 'scripts/javascript/scripts/typescript/global.js', '1.0');
     }
 }
 
@@ -28,7 +29,7 @@ function recetas_javascript_module($tag, $handle, $src){
     return $tag;
 }
 
-wp_register_script('script', plugin_dir_url(__FILE__) . 'scripts/javascript/scripts/typescript/global.js', '1.0');
+
 wp_enqueue_script('anime.js', 'https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js', '1.0.0', true); 
 wp_enqueue_script('script');
 add_filter("script_loader_tag", "recetas_javascript_module", 10, 3);

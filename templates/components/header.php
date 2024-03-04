@@ -29,4 +29,10 @@
     <header>
         <?php get_header(); ?>
     </header>
+    <div class="loading">
+        <section class="capas">
+            <div class="load"></div>
+        </section>
+        <h4>Cargando<span></span></h4>
+    </div>
     <main class="recetas-container">

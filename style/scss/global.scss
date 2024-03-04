@@ -10,6 +10,11 @@
 @import './pages/information';
 @import './pages/bienestar';
 @import './pages/comments'; 
+@import './components/loading'; 
+
+html {
+    scrollbar-gutter: stable;
+}
 
 body{
     background-color: $principal_color;
