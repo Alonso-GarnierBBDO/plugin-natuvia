@@ -896,7 +896,6 @@ html {
 .contact-home .all .information .video .wp-video .mejs-container *,
 .contact-home .all .information .video .mejs-container .mejs-container * {
   display: flex;
-  align-items: center;
 }
 .contact-home .all .information .video .wp-video .mejs-container * mediaelementwrapper,
 .contact-home .all .information .video .mejs-container .mejs-container * mediaelementwrapper {
@@ -1839,7 +1838,7 @@ html {
   border-radius: 50%;
   width: 40%;
   height: 40%;
-  background-color: #d1ff8df2;
+  background-color: #d1ff8d;
   box-shadow: 0px 0px 74px 56px #d1ff8d;
 }
 .bienestar_section .image img {
@@ -2572,6 +2571,16 @@ main {
 
 .elementor-location-header {
   z-index: 99999 !important;
+}
+
+video,
+.mejs-container-fullscreen video {
+  width: auto !important;
+  height: auto !important;
+}
+
+mediaelementwrapper {
+  justify-content: center;
 }
 
 /*# sourceMappingURL=global.css.map */
