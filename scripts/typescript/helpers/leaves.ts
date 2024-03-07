@@ -1,5 +1,68 @@
 function animationLeaves(){
 
+    if(window.innerWidth >= 1200){
+        
+        const containerLeaves : HTMLElement | null = document.querySelector('.leavesContainer');
+        let left : number = 0;
+        let top : number = 0;
+        let x = 0;
+        let y = 0;
+
+        if(containerLeaves){
+
+            const imgs : NodeListOf<HTMLImageElement> = containerLeaves.querySelectorAll('img');
+
+            window.onmousemove = (e : MouseEvent) => {
+
+                const mouseX = e.pageX;
+                const mouseY = e.pageY;
+    
+                if(mouseX < left){
+    
+                    if(x > -25){
+                        x-=0.3;
+                    }
+    
+                }else if(mouseX > left){
+                    
+                    if(x < 25){
+                        x+=0.3;
+                    }
+    
+                }
+
+                if(mouseY < top){
+    
+                    if(y > -25){
+                        y-=0.3;
+                    }
+    
+                }else if(mouseY > top){
+                    
+                    if(y < 25){
+                        y+=0.3;
+                    }
+    
+                }
+    
+                left = mouseX;
+                top = mouseY;
+
+                imgs.forEach( ( e : HTMLElement ) => {
+
+                    e.style.transform = `translateX(${x}px) translateY(${y}px)`;
+
+                });
+    
+    
+            }
+
+
+        }
+
+    }
+
+    /*
     const containerLeaves : HTMLElement | null = document.querySelector('.recetas-container .leaves')
 
     if(containerLeaves){
@@ -20,7 +83,7 @@ function animationLeaves(){
 
         }
 
-    }
+    }*/
 
 }
 

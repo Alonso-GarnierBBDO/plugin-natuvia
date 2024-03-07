@@ -21,6 +21,29 @@
 ?>
 
 
+<section class="leavesContainer">
+    <section class="transparent">
+        <img src="<?= $resetPath . 'assets/img/hoja-transparent.svg';  ?>" alt="">
+        <img src="<?= $resetPath . 'assets/img/hoja-transparent.svg';  ?>" alt="">
+        <img src="<?= $resetPath . 'assets/img/hoja-transparent.svg';  ?>" alt="">
+        <img src="<?= $resetPath . 'assets/img/hoja-transparent.svg';  ?>" alt="">
+        <img src="<?= $resetPath . 'assets/img/hoja-transparent.svg';  ?>" alt="">
+        <img src="<?= $resetPath . 'assets/img/hoja-transparent.svg';  ?>" alt="">
+        <img src="<?= $resetPath . 'assets/img/hoja-transparent.svg';  ?>" alt="">
+        <img src="<?= $resetPath . 'assets/img/hoja-transparent.svg';  ?>" alt="">
+    </section>
+    <section class="green">
+        <img src="<?= $resetPath . 'assets/img/hoja-verde.svg';  ?>" alt="">
+        <img src="<?= $resetPath . 'assets/img/hoja-verde.svg';  ?>" alt="">
+        <img src="<?= $resetPath . 'assets/img/hoja-verde.svg';  ?>" alt="">
+        <img src="<?= $resetPath . 'assets/img/hoja-verde.svg';  ?>" alt="">
+        <img src="<?= $resetPath . 'assets/img/hoja-verde.svg';  ?>" alt="">
+        <img src="<?= $resetPath . 'assets/img/hoja-verde.svg';  ?>" alt="">
+        <img src="<?= $resetPath . 'assets/img/hoja-verde.svg';  ?>" alt="">
+        <img src="<?= $resetPath . 'assets/img/hoja-verde.svg';  ?>" alt="">
+    </section>
+</section>
+
 
 <section class="recetas-header">
 

@@ -5,7 +5,7 @@
 * Plugin URI:        https://natuvia.co.cr/
 * Description:       Administrador de recetas
 * Version:           1.0.0
-* Author:            Alonso Artavia
+* Author:            Garnier BBDO
 * Author URI:        https://garnierbbdo.com
 * License:           GPL v2 or later
 * License URI:       https://www.gnu.org/licenses/gpl-2.0.html

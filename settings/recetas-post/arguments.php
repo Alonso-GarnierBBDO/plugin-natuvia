@@ -8,7 +8,7 @@
         'show_ui' => true,
         'show_in_menu' => true,
         'query_var' => true,
-        'rewrite' => array('slug' => 'recetas-portafolio'),
+        'rewrite' => array('slug' => 'natu-facts'),
         'capability_type' => 'post',
         'has_archive' => true,
         'hierarchical' => false,

@@ -1,16 +1,65 @@
 function animationLeaves() {
-    var containerLeaves = document.querySelector('.recetas-container .leaves');
-    if (containerLeaves) {
-        // Obtenemos las url de las imagenes
-        var imgLeaveTransparent_1 = containerLeaves.getAttribute('transparent');
-        var imgLeaveGreen_1 = containerLeaves.getAttribute('green');
-        if (imgLeaveTransparent_1 && imgLeaveGreen_1) {
-            insertLeaves(containerLeaves, imgLeaveTransparent_1, imgLeaveGreen_1);
-            setInterval(function () {
-                insertLeaves(containerLeaves, imgLeaveTransparent_1, imgLeaveGreen_1);
-            }, 4000);
+    if (window.innerWidth >= 1200) {
+        var containerLeaves = document.querySelector('.leavesContainer');
+        var left_1 = 0;
+        var top_1 = 0;
+        var x_1 = 0;
+        var y_1 = 0;
+        if (containerLeaves) {
+            var imgs_1 = containerLeaves.querySelectorAll('img');
+            window.onmousemove = function (e) {
+                var mouseX = e.pageX;
+                var mouseY = e.pageY;
+                if (mouseX < left_1) {
+                    if (x_1 > -25) {
+                        x_1 -= 0.3;
+                    }
+                }
+                else if (mouseX > left_1) {
+                    if (x_1 < 25) {
+                        x_1 += 0.3;
+                    }
+                }
+                if (mouseY < top_1) {
+                    if (y_1 > -25) {
+                        y_1 -= 0.3;
+                    }
+                }
+                else if (mouseY > top_1) {
+                    if (y_1 < 25) {
+                        y_1 += 0.3;
+                    }
+                }
+                left_1 = mouseX;
+                top_1 = mouseY;
+                imgs_1.forEach(function (e) {
+                    e.style.transform = "translateX(".concat(x_1, "px) translateY(").concat(y_1, "px)");
+                });
+            };
         }
     }
+    /*
+    const containerLeaves : HTMLElement | null = document.querySelector('.recetas-container .leaves')
+
+    if(containerLeaves){
+
+        // Obtenemos las url de las imagenes
+        const imgLeaveTransparent : string | null = containerLeaves.getAttribute('transparent');
+        const imgLeaveGreen : string | null= containerLeaves.getAttribute('green');
+
+        if(imgLeaveTransparent && imgLeaveGreen){
+
+            insertLeaves(containerLeaves, imgLeaveTransparent, imgLeaveGreen);
+
+            setInterval(()=>{
+
+                insertLeaves(containerLeaves, imgLeaveTransparent, imgLeaveGreen);
+
+            }, 4000)
+
+        }
+
+    }*/
 }
 /**
  * Aqui validamos que debemos imagen debe ir en el box del la hoja

@@ -48,9 +48,6 @@
             /** Header */
             include plugin_dir_path(__DIR__) . 'templates/components/header.php'; 
 
-            /** Este es el archivo de la animacion de las hojas */
-            include plugin_dir_path(__DIR__) . 'templates/components/leaves.php';
-
             /** Insertamos los ingredientes */
             include plugin_dir_path(__DIR__) . 'templates/recetas/ingredients.php';
 

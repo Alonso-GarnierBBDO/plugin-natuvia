@@ -19,7 +19,12 @@ html {
 body{
     background-color: $principal_color;
     overflow-x: hidden;
+    position: relative;
 } 
+
+main{
+    position: relative;
+}
 
 .elementor-location-header{
     z-index: 99999 !important;

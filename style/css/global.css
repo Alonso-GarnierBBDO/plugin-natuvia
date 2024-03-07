@@ -174,6 +174,223 @@ html {
   }
 }
 
+.leavesContainer {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100vw;
+  overflow: hidden;
+  height: 100%;
+  pointer-events: none;
+  user-select: none;
+  z-index: 999;
+}
+.leavesContainer .transparent {
+  height: 100%;
+}
+.leavesContainer .transparent img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+@media (min-width: 700px) {
+  .leavesContainer .transparent img {
+    width: 30px;
+    height: 30px;
+  }
+}
+.leavesContainer .transparent img:nth-of-type(1) {
+  position: absolute;
+  right: 50%;
+  top: 15%;
+}
+@media (min-width: 1100px) {
+  .leavesContainer .transparent img:nth-of-type(1) {
+    left: 8%;
+    top: 0%;
+    display: none;
+  }
+}
+.leavesContainer .transparent img:nth-of-type(2) {
+  position: absolute;
+  left: 6%;
+  top: 5%;
+}
+@media (min-width: 1100px) {
+  .leavesContainer .transparent img:nth-of-type(2) {
+    right: 3%;
+  }
+}
+.leavesContainer .transparent img:nth-of-type(3) {
+  position: absolute;
+  left: 1%;
+  top: 23%;
+}
+@media (min-width: 1100px) {
+  .leavesContainer .transparent img:nth-of-type(3) {
+    left: calc(4% - 15pxpx);
+    top: 40%;
+  }
+}
+.leavesContainer .transparent img:nth-of-type(4) {
+  position: absolute;
+  right: calc(0% - 10px);
+  top: 38%;
+  display: none;
+}
+@media (min-width: 1100px) {
+  .leavesContainer .transparent img:nth-of-type(4) {
+    left: 15%;
+    top: 65%;
+  }
+}
+.leavesContainer .transparent img:nth-of-type(5) {
+  position: absolute;
+  left: calc(0% - 10px);
+  top: 45%;
+}
+@media (min-width: 1100px) {
+  .leavesContainer .transparent img:nth-of-type(5) {
+    left: 90%;
+    top: 60%;
+  }
+}
+.leavesContainer .transparent img:nth-of-type(6) {
+  position: absolute;
+  left: 2%;
+  top: 55%;
+}
+@media (min-width: 1100px) {
+  .leavesContainer .transparent img:nth-of-type(6) {
+    left: 15%;
+    top: 50%;
+  }
+}
+.leavesContainer .transparent img:nth-of-type(7) {
+  position: absolute;
+  right: 1%;
+  top: 70%;
+}
+@media (min-width: 1100px) {
+  .leavesContainer .transparent img:nth-of-type(7) {
+    left: 50%;
+    top: 90%;
+  }
+}
+.leavesContainer .transparent img:nth-of-type(8) {
+  position: absolute;
+  left: 1%;
+  top: 90%;
+}
+@media (min-width: 1100px) {
+  .leavesContainer .transparent img:nth-of-type(8) {
+    left: 90%;
+    top: 85%;
+  }
+}
+.leavesContainer .green {
+  height: 100%;
+}
+.leavesContainer .green img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+@media (min-width: 700px) {
+  .leavesContainer .green img {
+    width: 30px;
+    height: 30px;
+  }
+}
+.leavesContainer .green img:nth-of-type(1) {
+  position: absolute;
+  right: 1%;
+  top: 5%;
+}
+@media (min-width: 1100px) {
+  .leavesContainer .green img:nth-of-type(1) {
+    right: 8%;
+    top: 9%;
+  }
+}
+.leavesContainer .green img:nth-of-type(2) {
+  position: absolute;
+  right: 43%;
+  top: 20%;
+}
+@media (min-width: 1100px) {
+  .leavesContainer .green img:nth-of-type(2) {
+    right: 3%;
+  }
+}
+.leavesContainer .green img:nth-of-type(3) {
+  position: absolute;
+  right: 1%;
+  top: 30%;
+}
+@media (min-width: 1100px) {
+  .leavesContainer .green img:nth-of-type(3) {
+    left: 8%;
+    top: 23%;
+  }
+}
+.leavesContainer .green img:nth-of-type(4) {
+  position: absolute;
+  left: calc(0% - 10px);
+  top: 38%;
+}
+@media (min-width: 1100px) {
+  .leavesContainer .green img:nth-of-type(4) {
+    left: 7%;
+    top: 60%;
+  }
+}
+.leavesContainer .green img:nth-of-type(5) {
+  position: absolute;
+  left: calc(0% - 10px);
+  top: 38%;
+}
+@media (min-width: 1100px) {
+  .leavesContainer .green img:nth-of-type(5) {
+    left: 97%;
+    top: 74%;
+  }
+}
+.leavesContainer .green img:nth-of-type(6) {
+  position: absolute;
+  right: 2%;
+  top: 48%;
+}
+@media (min-width: 1100px) {
+  .leavesContainer .green img:nth-of-type(6) {
+    left: 0%;
+    top: 85%;
+  }
+}
+.leavesContainer .green img:nth-of-type(7) {
+  position: absolute;
+  left: 1%;
+  top: 68%;
+}
+@media (min-width: 1100px) {
+  .leavesContainer .green img:nth-of-type(7) {
+    display: none;
+  }
+}
+.leavesContainer .green img:nth-of-type(8) {
+  position: absolute;
+  right: 1%;
+  top: 88%;
+}
+@media (min-width: 1100px) {
+  .leavesContainer .green img:nth-of-type(8) {
+    display: none;
+  }
+}
+
+.recetas-header {
+  position: relative;
+}
 @media (min-width: 901px) {
   .recetas-header .content_mobile {
     display: none;
@@ -1622,8 +1839,8 @@ html {
   border-radius: 50%;
   width: 40%;
   height: 40%;
-  background-color: rgba(255, 255, 255, 0.6);
-  box-shadow: 0px 0px 74px 56px rgba(255, 255, 255, 0.643);
+  background-color: #d1ff8df2;
+  box-shadow: 0px 0px 74px 56px #d1ff8d;
 }
 .bienestar_section .image img {
   width: 100%;
@@ -2346,6 +2563,11 @@ html {
 body {
   background-color: #F1F7E7;
   overflow-x: hidden;
+  position: relative;
+}
+
+main {
+  position: relative;
 }
 
 .elementor-location-header {

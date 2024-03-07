@@ -41,7 +41,7 @@
     include plugin_dir_path(__DIR__) . 'templates/components/header.php'; 
 
     /** Este es el archivo de la animacion de las hojas */
-    include plugin_dir_path(__DIR__) . 'templates/components/leaves.php';
+    /**include plugin_dir_path(__DIR__) . 'templates/components/leaves.php';/
 
     /** En este archivo contien todo el header de recetas */
     include plugin_dir_path(__DIR__) . 'templates/home/recetas.php';

@@ -1,3 +1,236 @@
+.leavesContainer {
+
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100vw;
+    overflow: hidden;
+    height: 100%;
+    pointer-events: none;
+    user-select: none;
+    z-index: 999;
+
+    .transparent{
+
+        height: 100%;
+
+        img{
+
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+
+            @include bp(tablet){
+                width: 30px;
+                height: 30px;
+            }
+
+            &:nth-of-type(1){
+                position: absolute;
+                right: 50%;
+                top: 15%;
+
+                @include bp(laptop){
+                    left: 8%;
+                    top: 0%;
+                    display: none;
+                }
+            }
+
+            &:nth-of-type(2){
+                position: absolute;
+                left: 6%;
+                top: 5%;
+
+                @include bp(laptop){
+                    right: 3%;
+                }
+
+            }
+
+            &:nth-of-type(3){
+                position: absolute;
+                left: 1%;
+                top: 23%;
+
+                @include bp(laptop){
+                    left: calc(4% - 15pxpx);
+                    top: 40%;
+                }
+
+            }
+
+            &:nth-of-type(4){
+                position: absolute;
+                right: calc(0% - 10px);
+                top: 38%;
+                display: none;
+
+                @include bp(laptop){
+                    left: 15%;
+                    top: 65%;
+                }
+            }
+
+            &:nth-of-type(5){
+                position: absolute;
+                left: calc(0% - 10px);
+                top: 45%;
+
+                @include bp(laptop){
+                    left: 90%;
+                    top: 60%;
+                }
+            }
+
+            &:nth-of-type(6){
+                position: absolute;
+                left: 2%;
+                top: 55%;
+
+                @include bp(laptop){
+                    left: 15%;
+                    top: 50%;
+                }
+            }
+
+            &:nth-of-type(7){
+                position: absolute;
+                right: 1%;
+                top: 70%;
+
+                @include bp(laptop){
+                    left: 50%;
+                    top: 90%;
+                }
+            }
+
+
+            &:nth-of-type(8){
+                position: absolute;
+                left: 1%;
+                top: 90%;
+
+                @include bp(laptop){
+                    left: 90%;
+                    top: 85%;
+                }
+            }
+
+        }
+
+    }
+
+
+    .green{
+
+        height: 100%;
+
+        img{
+
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+
+            @include bp(tablet){
+                width: 30px;
+                height: 30px;
+            }
+
+            &:nth-of-type(1){
+                position: absolute;
+                right: 1%;
+                top: 5%;
+
+                @include bp(laptop){
+                    right: 8%;
+                    top: 9%;
+                }
+            }
+
+            &:nth-of-type(2){
+                position: absolute;
+                right: 43%;
+                top: 20%;
+
+                @include bp(laptop){
+                    right: 3%;
+                }
+
+            }
+
+            &:nth-of-type(3){
+                position: absolute;
+                right: 1%;
+                top: 30%;
+
+                @include bp(laptop){
+                    left: 8%;
+                    top: 23%;
+                }
+
+            }
+
+            &:nth-of-type(4){
+                position: absolute;
+                left: calc(0% - 10px);
+                top: 38%;
+
+                @include bp(laptop){
+                    left: 7%;
+                    top: 60%;
+                }
+            }
+
+            &:nth-of-type(5){
+                position: absolute;
+                left: calc(0% - 10px);
+                top: 38%;
+
+                @include bp(laptop){
+                    left: 97%;
+                    top: 74%;
+                }
+            }
+
+            &:nth-of-type(6){
+                position: absolute;
+                right: 2%;
+                top: 48%;
+
+                @include bp(laptop){
+                    left: 0%;
+                    top: 85%;
+                }
+            }
+
+            &:nth-of-type(7){
+                position: absolute;
+                left: 1%;
+                top: 68%;
+
+                @include bp(laptop){
+                    display: none;
+                }
+            }
+
+
+            &:nth-of-type(8){
+                position: absolute;
+                right: 1%;
+                top: 88%;
+
+                @include bp(laptop){
+                    display: none;
+                }
+            }
+
+        }
+
+    }
+
+}
+
 .recetas-header{
 
     // @include bp(tabletMD){
@@ -18,6 +251,9 @@
     // @include bp(laptop){
     //     min-height: 80dvh;
     // }
+
+    position: relative;
+
     
     .content_mobile{
 

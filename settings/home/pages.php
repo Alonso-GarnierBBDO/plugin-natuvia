@@ -14,12 +14,12 @@ function active_page_recetas() {
         'post_title'   => 'Portafolio de Resetas',
         'post_status'  => 'publish',
         'post_type'    => 'page',
-        'post_name'    => 'recetas-portafolio', // URL de la pagina
+        'post_name'    => 'natu-facts', // URL de la pagina
         'page_template'  => 'template-blog.php'
     ];
 
     // Verificar si la página ya existe
-    $page = get_page_by_path('recetas-portafolio', OBJECT, 'page');
+    $page = get_page_by_path('natu-facts', OBJECT, 'page');
 
     if (!$page) {
         // La página no existe, insertarla
@@ -33,7 +33,7 @@ function active_page_recetas() {
 function deactivate_page_recetas() {
 
     // Obtemos la pagina por medio de la url
-    $page = get_page_by_path('recetas-portafolio', OBJECT, 'page');
+    $page = get_page_by_path('natu-facts', OBJECT, 'page');
 
     if ($page) {
         // Elimina la página
@@ -51,7 +51,7 @@ function disable_edit_page_recetas(){
     // Verifica si estamos en la página de edición de posts y obtén el ID actual
     if ('post.php' === $pagenow && isset($_GET['post'])) {
         $post_id = $_GET['post'];
-        $slug = 'recetas-portafolio'; // El slug de tu página
+        $slug = 'natu-facts'; // El slug de tu página
 
         $post = get_post($post_id);
         if ($post && $post->post_name === $slug) {
