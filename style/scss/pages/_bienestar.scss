@@ -146,6 +146,7 @@
             text-transform: lowercase;
 
             div{
+                text-wrap: balance;
                 transition: 1s ease;
                 opacity: 0;
                 transform: rotate3d(-1, 0, 0, 85deg) translateY(-100%);

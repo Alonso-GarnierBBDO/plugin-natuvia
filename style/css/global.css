@@ -842,6 +842,14 @@ html {
   transform: translateX(0%) scale(1);
   opacity: 1;
 }
+.contact-home .all .information.show .video .mejs-fullscreen-button {
+  display: none !important;
+}
+.contact-home .all .information.show .video video {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+}
 @media (min-width: 901px) {
   .contact-home .all .information.show .video {
     transform: translateY(0%) scale(1);
@@ -1909,6 +1917,7 @@ html {
   text-transform: lowercase;
 }
 .bienestar_section .bienestar_content h3 div {
+  text-wrap: balance;
   transition: 1s ease;
   opacity: 0;
   transform: rotate3d(-1, 0, 0, 85deg) translateY(-100%);
